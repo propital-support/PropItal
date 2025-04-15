@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Testimonianze - Propital</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(120deg, #0e1218, #11161e);
+      background-size: 400% 400%;
+      animation: bgAnim 20s ease infinite;
+      color: #ffffff;
+    }
+
+    @keyframes bgAnim {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #11161e;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 2rem 0;
+      font-size: 2.5rem;
+      background: linear-gradient(90deg, #00ffa3, #1dd4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .testimonial-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+
+    .testimonial {
+      background-color: #1a1f2b;
+      border-radius: 12px;
+      padding: 1.5rem;
+      max-width: 300px;
+      box-shadow: 0 0 15px rgba(0, 255, 163, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .testimonial:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(0, 255, 163, 0.3);
+    }
+
+    .testimonial p {
+      margin: 0.5rem 0 0;
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    .testimonial strong {
+      color: #00ffa3;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #11161e;
+      color: #aaa;
+      margin-top: 3rem;
+    }
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  animation: floatLogo 4s ease-in-out infinite;
+}
+
+.logo-container img {
+  height: 100px; /* Puoi aumentare se vuoi più grande */
+  transition: transform 0.3s ease;
+}
+
+.logo-container img:hover {
+  transform: scale(1.1);
+}
+
+@keyframes floatLogo {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header>
+<div class="logo-container animate__animated animate__fadeInDown">
+    <img src="logo-propital.png" alt="Logo Propital" style="height: 100px;">
+</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="piani.html">Piani</a>
+      <a href="carrello.html">Carrello</a>
+      <a href="auth.html">Accedi</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="terms.html">Termini</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="animate__animated animate__fadeIn">Cosa dicono i nostri trader</h1>
+    <div class="testimonial-container" data-aos="fade-up">
+      <!-- TESTIMONIANZE CON NOMI -->
+      <div class="testimonial"><strong>Francesco</strong><p>Ottima piattaforma e supporto impeccabile.</p></div>
+      <div class="testimonial"><strong>Giulia</strong><p>Propital mi ha permesso di fare il salto di qualità.</p></div>
+      <div class="testimonial"><strong>Alessandro</strong><p>Payout ricevuto in 24 ore, super soddisfatto!</p></div>
+      <div class="testimonial"><strong>Martina</strong><p>Sistema di valutazione trasparente e professionale.</p></div>
+      <div class="testimonial"><strong>Andrea</strong><p>Finalmente una prop firm seria in Italia!</p></div>
+      <div class="testimonial"><strong>Sara</strong><p>Trading senza pensieri, solo performance.</p></div>
+      <div class="testimonial"><strong>Matteo</strong><p>Commissioni basse, obiettivi realistici.</p></div>
+      <div class="testimonial"><strong>Aurora</strong><p>La community è motivante e preparata.</p></div>
+      <div class="testimonial"><strong>Riccardo</strong><p>Mi sento parte di un vero team di trader.</p></div>
+      <div class="testimonial"><strong>Sofia</strong><p>Supporto Telegram sempre attivo.</p></div>
+      <div class="testimonial"><strong>Davide</strong><p>Grafica accattivante e piattaforma fluida.</p></div>
+      <div class="testimonial"><strong>Leonardo</strong><p>Sono già al mio secondo payout.</p></div>
+      <div class="testimonial"><strong>Chiara</strong><p>La dashboard è chiara e facile da usare.</p></div>
+      <div class="testimonial"><strong>Giorgio</strong><p>La fase Evaluation è stata molto formativa.</p></div>
+      <div class="testimonial"><strong>Beatrice</strong><p>Finalmente una prop firm che rispetta i trader.</p></div>
+      <div class="testimonial"><strong>Tommaso</strong><p>Ottimo rapporto con il team Propital.</p></div>
+      <div class="testimonial"><strong>Vittoria</strong><p>Mi hanno aiutato a credere nelle mie capacità.</p></div>
+      <div class="testimonial"><strong>Simone</strong><p>Esperienza fantastica dall'inizio alla fine.</p></div>
+      <div class="testimonial"><strong>Greta</strong><p>Sono stata finanziata in 7 giorni!</p></div>
+      <div class="testimonial"><strong>Pietro</strong><p>Tutto spiegato in modo semplice e diretto.</p></div>
+      <div class="testimonial"><strong>Camilla</strong><p>Perfetto per chi vuole fare sul serio nel trading.</p></div>
+      <div class="testimonial"><strong>Federico</strong><p>Conto demo realistico, condizioni eccellenti.</p></div>
+      <div class="testimonial"><strong>Emma</strong><p>Mi sento supportata a ogni passo.</p></div>
+      <div class="testimonial"><strong>Stefano</strong><p>Grande trasparenza nelle regole.</p></div>
+      <div class="testimonial"><strong>Nicole</strong><p>Payout ricevuto senza problemi.</p></div>
+      <div class="testimonial"><strong>Gabriele</strong><p>La migliore prop firm sul mercato italiano.</p></div>
+      <div class="testimonial"><strong>Elena</strong><p>Il team Propital è davvero gentile e disponibile.</p></div>
+      <div class="testimonial"><strong>Nicola</strong><p>Sono riuscito a vivere del mio trading.</p></div>
+      <div class="testimonial"><strong>Alessia</strong><p>Ottima iniziativa per trader italiani.</p></div>
+      <div class="testimonial"><strong>Massimo</strong><p>Servizio clienti velocissimo.</p></div>
+      <div class="testimonial"><strong>Isabella</strong><p>Il mio capitale è cresciuto grazie a loro.</p></div>
+      <div class="testimonial"><strong>Daniele</strong><p>Ho superato la fase Pro al primo tentativo!</p></div>
+      <div class="testimonial"><strong>Claudia</strong><p>Consiglio Propital a tutti i miei colleghi.</p></div>
+      <div class="testimonial"><strong>Luca</strong><p>Trader da 10 anni, questa è la miglior esperienza.</p></div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Propital. Tutti i diritti riservati.</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>
+

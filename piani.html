@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Piani - Propital</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at 30% 30%, #1a1f2b, #0e1218);
+      color: #fff;
+    }
+
+    header {
+      background-color: #11161e;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 3rem;
+      background: linear-gradient(90deg, #00ffa3, #1dd4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .piani-container {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    .piano {
+      background-color: #11161e;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .piano h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #00ffa3;
+    }
+
+    .dimensione {
+      background-color: #1a1f2b;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      box-shadow: inset 0 0 5px rgba(0,255,163,0.2);
+    }
+
+    .dimensione h3 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .dimensione p {
+      margin: 0.5rem 0;
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    .dimensione button {
+      margin-top: 0.5rem;
+      background: linear-gradient(90deg, #00ffa3, #1dd4ff);
+      color: #000;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #11161e;
+      color: #aaa;
+      margin-top: 4rem;
+    }
+
+    .cart-icon {
+      position: relative;
+      font-size: 1rem;
+      margin-left: 1rem;
+      cursor: pointer;
+      color: #00ffa3;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      background: red;
+      color: #fff;
+      border-radius: 50%;
+      padding: 2px 6px;
+      font-size: 0.8rem;
+    }
+
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      animation: floatLogo 4s ease-in-out infinite;
+    }
+
+    .logo-container img {
+      height: 100px; /* Puoi aumentare se vuoi più grande */
+      transition: transform 0.3s ease;
+    }
+
+    .logo-container img:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes floatLogo {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container animate__animated animate__fadeInDown">
+      <img src="logo-propital.png" alt="Logo Propital">
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="carrello.html" class="cart-icon">🛒<span class="cart-count" id="cart-count">0</span></a>
+    </nav>
+  </header>
+
+  <h1>Piani Propital</h1>
+
+  <div class="piani-container">
+    <!-- Piano Evaluation -->
+    <div class="piano" data-aos="fade-up">
+      <h2>Evaluation</h2>
+      <div class="dimensione">
+        <h3>$10.000</h3>
+        <p>Fase 1: 6% </p>
+        <p>Fase 2: 5%</p>
+        <p>Drawdown Daily:  6%</p>
+        <p>Drawdown Max:  12%</p>
+        <p>Trading Period: No Time Limit</p>
+        <p>Leverage: 1:100</p>
+        <p>Profit Split: 90%</p>
+        <p>Payout: On Demand</p>
+        <p>Prezzo: €99</p>
+        <button class="add-to-cart-btn" data-name="Evaluation $10K" data-price="89">Aggiungi al carrello</button>
+      </div>
+      <div class="dimensione">
+        <h3>$25.000</h3>
+        <p>Fase 1: 6% </p>
+        <p>Fase 2: 5%</p>
+        <p>Drawdown Daily:  6%</p>
+        <p>Drawdown Max:  12%</p>
+        <p>Trading Period: No Time Limit</p>
+        <p>Leverage: 1:100</p>
+        <p>Profit Split: 90%</p>
+        <p>Payout: On Demand</p>
+        <p>Prezzo: €179</p>
+        <button class="add-to-cart-btn" data-name="Evaluation $25K" data-price="149">Aggiungi al carrello</button>
+      </div>
+      <div class="dimensione">
+        <h3>$50.000</h3>
+        <p>Fase 1: 6% </p>
+        <p>Fase 2: 5%</p>
+        <p>Drawdown Daily:  6%</p>
+        <p>Drawdown Max:  12%</p>
+        <p>Trading Period: No Time Limit</p>
+        <p>Leverage: 1:100</p>
+        <p>Profit Split: 90%</p>
+        <p>Payout: On Demand</p>
+        <p>Prezzo: €379</p>
+        <button class="add-to-cart-btn" data-name="Evaluation $50K" data-price="249">Aggiungi al carrello</button>
+      </div>
+      <div class="dimensione">
+        <h3>$100.000</h3>
+        <p>Fase 1: 6% </p>
+        <p>Fase 2: 5%</p>
+        <p>Drawdown Daily:  6%</p>
+        <p>Drawdown Max:  12%</p>
+        <p>Trading Period: No Time Limit</p>
+        <p>Leverage: 1:100</p>
+        <p>Profit Split: 90%</p>
+        <p>Payout: On Demand</p>
+        <p>Prezzo: €499</p>
+        <button class="add-to-cart-btn" data-name="Evaluation $100K" data-price="499">Aggiungi al carrello</button>
+      </div>
+      <div class="dimensione">
+        <h3>$150.000</h3>
+        <p>Fase 1: 6% </p>
+        <p>Fase 2: 5%</p>
+        <p>Drawdown Daily:  6%</p>
+        <p>Drawdown Max:  12%</p>
+        <p>Trading Period: No Time Limit</p>
+        <p>Leverage: 1:100</p>
+        <p>Profit Split: 90%</p>
+        <p>Payout: On Demand</p>
+        <p>Prezzo: €649</p>
+        <button class="add-to-cart-btn" data-name="Evaluation $150K" data-price="699">Aggiungi al carrello</button>
+      </div>
+      <div class="dimensione">
+        <h3>$200.000</h3>
+        <p>Fase 1: 6% </p>
+        <p>Fase 2: 5%</p>
+        <p>Drawdown Daily:  6%</p>
+        <p>Drawdown Max:  12%</p>
+        <p>Trading Period: No Time Limit</p>
+        <p>Leverage: 1:100</p>
+        <p>Profit Split: 90%</p>
+        <p>Payout: On Demand</p>
+        <p>Prezzo: €899</p>
+        <button class="add-to-cart-btn" data-name="Evaluation $200K" data-price="899">Aggiungi al carrello</button>
+      </div>
+      <div class="dimensione">
+        <h3>$300.000</h3>
+        <p>Fase 1: 6% </p>
+        <p>Fase 2: 5%</p>
+        <p>Drawdown Daily:  6%</p>
+        <p>Drawdown Max:  12%</p>
+        <p>Trading Period: No Time Limit</p>
+        <p>Leverage: 1:100</p>
+        <p>Profit Split: 90%</p>
+        <p>Payout: On Demand</p>
+        <p>Prezzo: €1099</p>
+        <button class="add-to-cart-btn" data-name="Evaluation $300K" data-price="1299">Aggiungi al carrello</button>
+      </div>
+    </div>
+
+    <!-- Piano Pro -->
+    <div class="piano" data-aos="fade-up" data-aos-delay="100">
+      <h2>Pro</h2>
+      <div class="dimensione">
+        <h3>$10.000</h3>
+        <p>Obiettivo unico: 7%</p>
+        <p>Drawdown Daily:  4%</p>
+        <p>Drawdown Max:  10%</p>
+        <p>Trading Period: No Time Limit</p>
+        <p>Leverage: 1:50</p>
+        <p>Profit Split: 85%</p>
+        <p>Payout: On Demand</p>
+        <p>Prezzo: €129</p>
+        <button class="add-to-cart-btn" data-name="Pro $10K" data-price="109">Aggiungi al carrello</button>
+      </div>
+      <div class="dimensione">
+        <h3>$25.000</h3>
+        <p>Obiettivo unico: 7%</p>
+        <p>Drawdown Daily:  4%</p>
+        <p>Drawdown Max:  10%</p>
+        <p>Trading Period: No Time Limit</p>
+        <p>Leverage: 1:50</p>
+        <p>Profit Split: 85%</p>
+        <p>Payout: On Demand</p>
+        <p>Prezzo: €249</p>
+        <button class="add-to-cart-btn" data-name="Pro $25K" data-price="179">Aggiungi al carrello</button>
+      </div>
+      <div class="dimensione">
+        <h3>$50.000</h3>
+        <p>Obiettivo unico: 7%</p>
+        <p>Drawdown Daily:  4%</p>
+        <p>Drawdown Max:  10%</p>
+        <p>Trading Period: No Time Limit</p>
+        <p>Leverage: 1:50</p>
+        <p>Profit Split: 85%</p>
+        <p>Payout: On Demand</p>
+        <p>Prezzo: €389</p>
+        <button class="add-to-cart-btn" data-name="Pro $50K" data-price="279">Aggiungi al carrello</button>
+      </div>
+      <div class="dimensione">
+        <h3>$100.000</h3>
+        <p>Obiettivo unico: 7%</p>
+        <p>Drawdown Daily:  4%</p>
+        <p>Drawdown Max:  10%</p>
+        <p>Trading Period: No Time Limit</p>
+        <p>Leverage: 1:50</p>
+        <p>Profit Split: 85%</p>
+        <p>Payout: On Demand</p>
+        <p>Prezzo: €649</p>
+        <button class="add-to-cart-btn" data-name="Pro $100K" data-price="549">Aggiungi al carrello</button>
+      </div>
+      <div class="dimensione">
+        <h3>$150.000</h3>
+        <p>Obiettivo unico: 7%</p>
+        <p>Drawdown Daily:  4%</p>
+        <p>Drawdown Max:  10%</p>
+        <p>Trading Period: No Time Limit</p>
+        <p>Leverage: 1:50</p>
+        <p>Profit Split: 85%</p>
+        <p>Payout: On Demand</p>
+        <p>Prezzo: €849</p>
+        <button class="add-to-cart-btn" data-name="Pro $150K" data-price="749">Aggiungi al carrello</button>
+      </div>
+      <div class="dimensione">
+        <h3>$200.000</h3>
+        <p>Obiettivo unico: 7%</p>
+        <p>Drawdown Daily:  4%</p>
+        <p>Drawdown Max:  10%</p>
+        <p>Trading Period: No Time Limit</p>
+        <p>Leverage: 1:50</p>
+        <p>Profit Split: 85%</p>
+        <p>Payout: On Demand</p>
+        <p>Prezzo: €1099</p>
+        <button class="add-to-cart-btn" data-name="Pro $200K" data-price="949">Aggiungi al carrello</button>
+      </div>
+      <div class="dimensione">
+        <h3>$300.000</h3>
+        <p>Obiettivo unico: 7%</p>
+        <p>Drawdown Daily:  4%</p>
+        <p>Drawdown Max:  10%</p>
+        <p>Trading Period: No Time Limit</p>
+        <p>Leverage: 1:50</p>
+        <p>Profit Split: 85%</p>
+        <p>Payout: On Demand</p>
+        <p>Prezzo: €1499</p>
+        <button class="add-to-cart-btn" data-name="Pro $300K" data-price="1399">Aggiungi al carrello</button>
+      </div>
+    </div>
+
+    <!-- Piano Instant -->
+    <div class="piano" data-aos="fade-up" data-aos-delay="200">
+      <h2>Instant</h2>
+      <div class="dimensione">
+        <h3>$10.000</h3>
+        <p>Nessun obiettivo richiesto</p>
+        <p>Drawdown Daily:  6%</p>
+        <p>Drawdown Max:  12%</p>
+        <p>Trading Period: No Time Limit</p>
+        <p>Leverage: 1:100</p>
+        <p>Profit Split: 95%</p>
+        <p>Payout: On Demand</p>
+        <p>Prezzo: €249</p>
+        <button class="add-to-cart-btn" data-name="Instant $10K" data-price="129">Aggiungi al carrello</button>
+      </div>
+      <div class="dimensione">
+        <h3>$25.000</h3>
+        <p>Nessun obiettivo richiesto</p>
+        <p>Drawdown Daily:  6%</p>
+        <p>Drawdown Max:  12%</p>
+        <p>Trading Period: No Time Limit</p>
+        <p>Leverage: 1:100</p>
+        <p>Profit Split: 95%</p>
+        <p>Payout: On Demand</p>
+        <p>Prezzo: €449</p>
+        <button class="add-to-cart-btn" data-name="Instant $25K" data-price="199">Aggiungi al carrello</button>
+      </div>
+      <div class="dimensione">
+        <h3>$50.000</h3>
+        <p>Nessun obiettivo richiesto</p>
+        <p>Drawdown Daily:  6%</p>
+        <p>Drawdown Max:  12%</p>
+        <p>Trading Period: No Time Limit</p>
+        <p>Leverage: 1:100</p>
+        <p>Profit Split: 95%</p>
+        <p>Payout: On Demand</p>
+        <p>Prezzo: €649</p>
+        <button class="add-to-cart-btn" data-name="Instant $50K" data-price="299">Aggiungi al carrello</button>
+      </div>
+      <div class="dimensione">
+        <h3>$100.000</h3>
+        <p>Nessun obiettivo richiesto</p>
+        <p>Drawdown Daily:  6%</p>
+        <p>Drawdown Max:  12%</p>
+        <p>Trading Period: No Time Limit</p>
+        <p>Leverage: 1:100</p>
+        <p>Profit Split: 95%</p>
+        <p>Payout: On Demand</p>
+        <p>Prezzo: €929</p>
+        <button class="add-to-cart-btn" data-name="Instant $100K" data-price="599">Aggiungi al carrello</button>
+      </div>
+      <div class="dimensione">
+        <h3>$150.000</h3>
+        <p>Nessun obiettivo richiesto</p>
+        <p>Drawdown Daily:  6%</p>
+        <p>Drawdown Max:  12%</p>
+        <p>Trading Period: No Time Limit</p>
+        <p>Leverage: 1:100</p>
+        <p>Profit Split: 95%</p>
+        <p>Payout: On Demand</p>
+        <p>Prezzo: €1399</p>
+        <button class="add-to-cart-btn" data-name="Instant $150K" data-price="799">Aggiungi al carrello</button>
+      </div>
+      <div class="dimensione">
+        <h3>$200.000</h3>
+        <p>Nessun obiettivo richiesto</p>
+        <p>Drawdown Daily:  6%</p>
+        <p>Drawdown Max:  12%</p>
+        <p>Trading Period: No Time Limit</p>
+        <p>Leverage: 1:100</p>
+        <p>Profit Split: 95%</p>
+        <p>Payout: On Demand</p>
+        <p>Prezzo: €1749</p>
+        <button class="add-to-cart-btn" data-name="Instant $200K" data-price="999">Aggiungi al carrello</button>
+      </div>
+      <div class="dimensione">
+        <h3>$300.000</h3>
+        <p>Nessun obiettivo richiesto</p>
+        <p>Drawdown Daily:  6%</p>
+        <p>Drawdown Max:  12%</p>
+        <p>Trading Period: No Time Limit</p>
+        <p>Leverage: 1:100</p>
+        <p>Profit Split: 95%</p>
+        <p>Payout: On Demand</p>
+        <p>Prezzo: €1999</p>
+        <button class="add-to-cart-btn" data-name="Instant $300K" data-price="1499">Aggiungi al carrello</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Propital. Tutti i diritti riservati.</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function updateCartCount() {
+      document.getElementById('cart-count').textContent = cart.length;
+    }
+
+    document.querySelectorAll('button[data-name]').forEach(button => {
+      button.addEventListener('click', () => {
+        const name = button.dataset.name;
+        const price = parseFloat(button.dataset.price);
+
+        cart.push({ name, price });
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+      });
+    });
+
+    updateCartCount();
+  </script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAQ - Propital</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(120deg, #0e1218, #11161e);
+      background-size: 400% 400%;
+      animation: bgAnim 20s ease infinite;
+      color: #ffffff;
+    }
+
+    @keyframes bgAnim {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #11161e;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 2rem 0;
+      font-size: 2.5rem;
+      background: linear-gradient(90deg, #00ffa3, #1dd4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .faq-section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    .faq-item {
+      background-color: #1a1f2b;
+      border-radius: 10px;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 10px rgba(0,255,163,0.1);
+    }
+
+    details summary {
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #00ffa3;
+    }
+
+    details[open] summary {
+      margin-bottom: 0.5rem;
+    }
+
+    details p {
+      margin: 0;
+      color: #ccc;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #11161e;
+      color: #aaa;
+      margin-top: 3rem;
+    }
+
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      animation: floatLogo 4s ease-in-out infinite;
+    }
+
+    .logo-container img {
+      height: 100px; 
+      transition: transform 0.3s ease;
+    }
+
+    .logo-container img:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes floatLogo {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container animate__animated animate__fadeInDown">
+      <img src="logo-propital.png" alt="Logo Propital" style="height: 100px;">
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="piani.html">Piani</a>
+      <a href="testimonianze.html">Testimonianze</a>
+      <a href="carrello.html">Carrello</a>
+      <a href="auth.html">Accedi</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="animate__animated animate__fadeIn">Domande Frequenti</h1>
+    <div class="faq-section" data-aos="fade-up">
+
+      <div class="faq-item">
+        <details>
+          <summary>Come funziona il programma di valutazione?</summary>
+          <p>Ricevi un conto demo con capitale virtuale. Se raggiungi l'obiettivo di profitto senza violare le regole, ottieni un conto reale diretto a mercato Book A.</p>
+        </details>
+      </div>
+
+      <div class="faq-item">
+        <details>
+          <summary>Quali sono i tempi per completare la valutazione?</summary>
+          <p>Hai 360 giorni per la Fase 1 e 400 giorni per la Fase 2, a seconda del piano scelto.</p>
+        </details>
+      </div>
+
+      <div class="faq-item">
+        <details>
+          <summary>Quanto è il profit split?</summary>
+          <p>Il profitto viene condiviso fino al 90% in tuo favore, a seconda del tipo di piano.</p>
+        </details>
+      </div>
+
+      <div class="faq-item">
+        <details>
+          <summary>Quando posso ricevere il mio primo payout?</summary>
+          <p>Puoi richiedere il primo payout dopo 24h dal primo scambio con il conto finanziato.</p>
+        </details>
+      </div>
+
+      <div class="faq-item">
+        <details>
+          <summary>È possibile ottenere un rimborso della fee iniziale?</summary>
+          <p>Sì, al raggiungimento del primo payout riceverai il rimborso completo della commissione iniziale.</p>
+        </details>
+      </div>
+
+      <div class="faq-item">
+        <details>
+          <summary>Che piattaforma di trading utilizzate?</summary>
+          <p>Supportiamo MetaTrader 4, MetaTrader 5 e cTrader, con server dedicati per bassa latenza.</p>
+        </details>
+      </div>
+
+      <div class="faq-item">
+        <details>
+          <summary>Cosa succede se fallisco la valutazione?</summary>
+          <p>Puoi riprovare acquistando nuovamente il piano. Offriamo anche sconti ricorrenti per retry.</p>
+        </details>
+      </div>
+
+      <div class="faq-item">
+        <details>
+          <summary>Posso usare Expert Advisor (EA)?</summary>
+          <p>Sì, ma solo se non sono considerati ad alto rischio o con pratiche vietate come arbitraggio o manipolazioni.</p>
+        </details>
+      </div>
+
+      <div class="faq-item">
+        <details>
+          <summary>Posso avere più account contemporaneamente?</summary>
+          <p>Sì, puoi avere più account attivi contemporaneamente, fino a un massimo di $2.000.000 in gestione.</p>
+        </details>
+      </div>
+
+      <div class="faq-item">
+        <details>
+          <summary>Quali sono i requisiti per partecipare al programma?</summary>
+          <p>Non ci sono requisiti specifici, basta avere una conoscenza di base del trading e rispettare le condizioni del programma.</p>
+        </details>
+      </div>
+
+      <div class="faq-item">
+        <details>
+          <summary>Come posso contattare il supporto clienti?</summary>
+          <p>Puoi contattare il nostro supporto clienti via email all'indirizzo <strong>support@propital.com</strong> o tramite il nostro modulo di contatto sul sito.</p>
+        </details>
+      </div>
+
+      <div class="faq-item">
+        <details>
+          <summary>Posso utilizzare strategie di trading particolari?</summary>
+          <p>Sì, siamo aperti a diverse strategie di trading, a condizione che siano conformi alle nostre politiche di trading.</p>
+        </details>
+      </div>
+
+      <div class="faq-item">
+        <details>
+          <summary>Che tipo di analisi fornite agli utenti?</summary>
+          <p>Forniremo report periodici sulle performance del conto e suggerimenti per migliorare le strategie di trading.</p>
+        </details>
+      </div>
+
+      <div class="faq-item">
+        <details>
+          <summary>Ci sono costi nascosti?</summary>
+          <p>No, tutti i costi sono chiaramente indicati sul nostro sito e nel contratto di adesione.</p>
+        </details>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Propital. Tutti i diritti riservati.</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>

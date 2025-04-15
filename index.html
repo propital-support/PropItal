@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Propital - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(120deg, #0e1218, #0d1015);
+      color: white;
+      overflow-x: hidden;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #0d1117;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+    header img {
+      height: 50px;
+    }
+    nav a {
+      margin-left: 1.2rem;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #1dd4ff;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 7rem 2rem 5rem;
+      background: linear-gradient(180deg, rgba(14,18,24,0.9) 0%, rgba(20,25,34,0.8) 100%);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://cdn.pixabay.com/photo/2021/03/16/11/04/abstract-6098726_1280.jpg') center/cover no-repeat;
+      opacity: 0.15;
+      z-index: -1;
+      animation: moveBackground 60s linear infinite;
+    }
+
+    @keyframes moveBackground {
+      from { background-position: 0 0; }
+      to { background-position: 1000px 0; }
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      background: linear-gradient(90deg, #00ffa3, #1dd4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: auto;
+      color: #ccc;
+    }
+
+    .hero a {
+      display: inline-block;
+      margin-top: 2rem;
+      background: linear-gradient(90deg, #00ffa3, #1dd4ff);
+      color: #000;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: transform 0.3s;
+    }
+
+    .hero a:hover {
+      transform: scale(1.05);
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #1dd4ff;
+    }
+
+    .section-box {
+      background-color: #11161e;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      margin-bottom: 2rem;
+    }
+
+    .contacts p {
+      margin: 0.5rem 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #11161e;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    footer a {
+      color: #00ffa3;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media screen and (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+    .logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  animation: floatLogo 4s ease-in-out infinite;
+}
+
+.logo-container img {
+  height: 100px; /* Puoi aumentare se vuoi più grande */
+  transition: transform 0.3s ease;
+}
+
+.logo-container img:hover {
+  transform: scale(1.1);
+}
+
+@keyframes floatLogo {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+<div class="logo-container animate__animated animate__fadeInDown">
+    <img src="logo-propital.png" alt="Logo Propital"style="height: 100px;">
+</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="piani.html">Piani</a>
+      <a href="testimonianze.html">Testimonianze</a>
+      <a href="faq.html">FAQ</a>
+      <a href="checkout.html">Checkout</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="auth.html">Accedi</a>
+      <a href="terms.html">Termini</a>
+    </nav>
+  </header>
+
+  <section class="hero animate__animated animate__fadeIn">
+    <h1>La tua carriera da trader inizia qui</h1>
+    <p>Propital ti offre capitale per fare trading. Concentrati sulla performance, noi pensiamo al resto.</p>
+    <a href="auth.html">Inizia ora</a>
+  </section>
+
+  <section class="animate__animated animate__fadeInUp" data-aos="fade-up">
+    <h2>Piani disponibili</h2>
+    <div class="section-box">
+      <p>Esplora tutti i nostri <strong><a href="piani.html" style="color:#00ffa3;">piani di valutazione</a></strong>, pro e instant per iniziare la tua carriera da trader finanziato.</p>
+    </div>
+  </section>
+
+  <section class="testimonials animate__animated animate__fadeInUp" data-aos="fade-up">
+    <h2>Cosa dicono i nostri trader</h2>
+    <div class="section-box">
+      <p>Leggi le <strong><a href="testimonianze.html" style="color:#00ffa3;">testimonianze</a></strong> dei nostri trader che hanno ottenuto payout e successo grazie a Propital.</p>
+    </div>
+  </section>
+
+  <section class="faq animate__animated animate__fadeInUp" data-aos="fade-up">
+    <h2>Domande frequenti</h2>
+    <div class="section-box">
+      <p>Consulta la sezione <strong><a href="faq.html" style="color:#00ffa3;">FAQ</a></strong> per rispondere a tutte le tue domande prima di iniziare.</p>
+    </div>
+  </section>
+
+  <section class="contacts animate__animated animate__fadeInUp" data-aos="fade-up">
+    <h2>Contattaci</h2>
+    <div class="section-box">
+      <p>Email: support@propital.com</p>
+      <p>Telegram: @propital_support</p>
+      <p>Instagram: @propital</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Propital. Tutti i diritti riservati. <a href="terms.html">Termini d'uso</a></p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+</body>
+</html>

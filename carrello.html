@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carrello | Propital</title>
+  <link rel="stylesheet" href="stile.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: #00ffd5;
+    }
+    #carrello-container {
+      padding: 40px;
+      max-width: 800px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 255, 213, 0.3);
+    }
+    #lista-carrello {
+      list-style-type: none;
+      padding: 0;
+    }
+    #lista-carrello li {
+      background: rgba(255, 255, 255, 0.1);
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 5px;
+      font-size: 18px;
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+    }
+    #totale {
+      margin-top: 30px;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: right;
+      color: #00ffd5;
+    }
+    .vuoto {
+      text-align: center;
+      font-size: 20px;
+      padding: 50px;
+      color: #ccc;
+    }
+    .bottoni {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+    }
+    .bottoni a {
+      background-color: #00ffd5;
+      color: #000;
+      text-decoration: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    .bottoni a:hover {
+      background-color: #00c8a3;
+    }
+    .rimuovi {
+      background: transparent;
+      border: none;
+      color: #ff4d4d;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>Il tuo carrello Propital</header>
+
+  <div id="carrello-container">
+    <ul id="lista-carrello"></ul>
+    <p id="totale">Totale: $0</p>
+
+    <div class="bottoni">
+      <a href="piani.html">← Torna ai Piani</a>
+      <a href="checkout.html">Procedi al Checkout →</a>
+    </div>
+  </div>
+
+  <script>
+    let items = JSON.parse(localStorage.getItem('cart')) || [];
+
+    const listaCarrello = document.getElementById('lista-carrello');
+    const totaleElemento = document.getElementById('totale');
+
+    function aggiornaCarrello() {
+      listaCarrello.innerHTML = '';
+      let totale = 0;
+
+      if (items.length === 0) {
+        listaCarrello.innerHTML = "<li class='vuoto'>Il carrello è vuoto.</li>";
+        totaleElemento.textContent = "Totale: $0";
+        return;
+      }
+
+      items.forEach((item, index) => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <strong>${item.name}</strong><br>
+          Prezzo: $${item.price ? parseFloat(item.price).toFixed(2) : '0.00'}
+          <button class="rimuovi" onclick="rimuoviDalCarrello(${index})">Rimuovi</button>
+        `;
+        listaCarrello.appendChild(li);
+        totale += parseFloat(item.price) || 0; // Aggiunta di un fallback per evitare NaN
+      });
+
+      totaleElemento.textContent = `Totale: $${totale.toFixed(2)}`;
+    }
+
+    function rimuoviDalCarrello(index) {
+      items.splice(index, 1); // Rimuove l'elemento dall'array
+      localStorage.setItem('cart', JSON.stringify(items)); // Aggiorna il carrello in localStorage
+      aggiornaCarrello(); // Rinnova la visualizzazione del carrello
+    }
+
+    aggiornaCarrello();
+  </script>
+</body>
+</html>

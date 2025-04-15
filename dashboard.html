@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard - Propital</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0e1218;
+      color: #fff;
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+      background: linear-gradient(90deg, #00ffa3, #1dd4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 2.5rem;
+    }
+    .dashboard {
+      max-width: 1000px;
+      margin: auto;
+      background: #11161e;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 255, 163, 0.2);
+    }
+    .section {
+      margin-bottom: 2rem;
+    }
+    .section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #00ffa3;
+    }
+    .progress-bar-container {
+      background-color: #333;
+      border-radius: 8px;
+      overflow: hidden;
+      height: 25px;
+      margin-top: 10px;
+    }
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #00ffa3, #1dd4ff);
+      transition: width 0.5s ease-in-out;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+    .stat-box {
+      background: #1a1f2b;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .label {
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+    .value {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-top: 0.3rem;
+    }
+  </style>
+</head>
+<body>
+<div class="logo-container animate__animated animate__fadeInDown">
+    <img src="logo-propital.png" alt="Logo Propital" style="height: 100px;">
+</div>
+  <h1 class="animate__animated animate__fadeInDown">La tua Dashboard</h1>
+  <div class="dashboard animate__animated animate__fadeInUp">
+
+    <div class="section">
+      <h2>📄 Dettagli del Piano</h2>
+      <p><strong>Piano acquistato:</strong> <span id="piano"></span></p>
+      <p><strong>Capitale:</strong> <span id="capitale"></span></p>
+      <p><strong>Data acquisto:</strong> <span id="data"></span></p>
+      <p><strong>Stato:</strong> <span id="stato"></span></p>
+    </div>
+
+    <div class="section">
+      <h2>📈 Performance Trading</h2>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="label">Guadagni/Perdite</div>
+          <div class="value" id="guadagni">$0</div>
+        </div>
+        <div class="stat-box">
+          <div class="label">% Completamento</div>
+          <div class="value" id="completamento">0%</div>
+        </div>
+        <div class="stat-box">
+          <div class="label">Giorni rimanenti</div>
+          <div class="value" id="giorni">360</div>
+        </div>
+      </div>
+      <div class="progress-bar-container">
+        <div class="progress-bar" id="barra"></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📊 Statistiche Avanzate</h2>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="label">Operazioni totali</div>
+          <div class="value" id="operazioni">0</div>
+        </div>
+        <div class="stat-box">
+          <div class="label">Vincenti</div>
+          <div class="value" id="vincenti">0</div>
+        </div>
+        <div class="stat-box">
+          <div class="label">Perdenti</div>
+          <div class="value" id="perdenti">0</div>
+        </div>
+        <div class="stat-box">
+          <div class="label">Drawdown</div>
+          <div class="value" id="drawdown">0%</div>
+        </div>
+        <div class="stat-box">
+          <div class="label">Profitto medio</div>
+          <div class="value" id="media">0%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🔔 Notifiche</h2>
+      <ul id="notifiche">
+        <li>Nessuna notifica al momento.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>📂 Cronologia Acquisti</h2>
+      <ul id="cronologia">
+        <li>In attesa di acquisti.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>⚙️ Accesso rapido</h2>
+      <p><a href="carrello.html" style="color:#1dd4ff">Vai al Carrello</a> | <a href="piani.html" style="color:#1dd4ff">Acquista un altro piano</a></p>
+    </div>
+
+  </div>
+
+  <script>
+    const acquisto = JSON.parse(localStorage.getItem("acquisto"));
+    const pianoEl = document.getElementById("piano");
+    const capitaleEl = document.getElementById("capitale");
+    const dataEl = document.getElementById("data");
+    const statoEl = document.getElementById("stato");
+
+    if (acquisto) {
+      const today = new Date().toLocaleDateString();
+      pianoEl.textContent = acquisto.nome;
+      capitaleEl.textContent = acquisto.capitale;
+      dataEl.textContent = today;
+      statoEl.textContent = "Attivo";
+
+      // Esempio di performance random per simulazione (puoi sostituire con dati reali)
+      const percentuale = Math.floor(Math.random() * 50);
+      document.getElementById("completamento").textContent = percentuale + "%";
+      document.getElementById("barra").style.width = percentuale + "%";
+
+      document.getElementById("guadagni").textContent = "$" + (percentuale * 100).toFixed(2);
+      document.getElementById("operazioni").textContent = 10;
+      document.getElementById("vincenti").textContent = 6;
+      document.getElementById("perdenti").textContent = 4;
+      document.getElementById("drawdown").textContent = "5%";
+      document.getElementById("media").textContent = "2.5%";
+      document.getElementById("cronologia").innerHTML = `<li>${acquisto.nome} acquistato in data ${today}</li>`;
+    } else {
+      // Nessun acquisto: dashboard vuota
+      pianoEl.textContent = "Nessun piano acquistato";
+      capitaleEl.textContent = "-";
+      dataEl.textContent = "-";
+      statoEl.textContent = "Inattivo";
+
+      document.getElementById("barra").style.width = "0%";
+    }
+  </script>
+
+</body>
+</html>
