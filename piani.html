@@ -3,20 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Piani - Propital</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <title>Piani Propital</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: radial-gradient(circle at 30% 30%, #1a1f2b, #0e1218);
-      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      background: #0f172a;
+      color: white;
+      overflow-x: hidden;
     }
-
+    #bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100vw;
+      height: 100vh;
+    }
     header {
-      background-color: #11161e;
-      padding: 1rem 2rem;
+      padding: 10px 20px;
+      background: #111827;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -24,452 +32,211 @@
       top: 0;
       z-index: 1000;
     }
-
-    header img {
-      height: 50px;
+    .logo-container img {
+      height: 60px;
     }
-
     nav a {
-      margin-left: 1.5rem;
+      color: white;
       text-decoration: none;
-      color: #fff;
-      font-weight: bold;
+      margin-left: 20px;
+      font-weight: 600;
+      font-size: 1rem;
     }
-
-    h1 {
-      text-align: center;
-      margin-top: 2rem;
-      font-size: 3rem;
-      background: linear-gradient(90deg, #00ffa3, #1dd4ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .piani-container {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-      max-width: 1200px;
-      margin: 3rem auto;
-      padding: 0 2rem;
-    }
-
-    .piano {
-      background-color: #11161e;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
-      flex: 1;
-      min-width: 300px;
-    }
-
-    .piano h2 {
-      text-align: center;
-      margin-bottom: 1rem;
-      color: #00ffa3;
-    }
-
-    .dimensione {
-      background-color: #1a1f2b;
-      padding: 1rem;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      box-shadow: inset 0 0 5px rgba(0,255,163,0.2);
-    }
-
-    .dimensione h3 {
-      margin: 0;
-      font-size: 1.2rem;
-    }
-
-    .dimensione p {
-      margin: 0.5rem 0;
-      font-size: 0.95rem;
-      color: #ccc;
-    }
-
-    .dimensione button {
-      margin-top: 0.5rem;
-      background: linear-gradient(90deg, #00ffa3, #1dd4ff);
-      color: #000;
-      font-weight: bold;
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background-color: #11161e;
-      color: #aaa;
-      margin-top: 4rem;
-    }
-
     .cart-icon {
       position: relative;
-      font-size: 1rem;
-      margin-left: 1rem;
-      cursor: pointer;
-      color: #00ffa3;
+      font-size: 1.5rem;
     }
-
     .cart-count {
       position: absolute;
       top: -8px;
       right: -10px;
       background: red;
-      color: #fff;
+      color: white;
       border-radius: 50%;
       padding: 2px 6px;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
     }
-
-    .logo-container {
+    h1 {
+      font-size: 3rem;
+      margin: 40px 0 20px;
+      text-align: center;
+      background: linear-gradient(90deg, #00ffa3, #1dd4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .plans-container {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      margin-top: 10px;
+      gap: 60px;
+      padding: 40px 20px;
+    }
+    .plan-section {
+      width: 100%;
+      max-width: 1200px;
+      border-left: 6px solid #00ffa3;
+      padding-left: 24px;
+    }
+    .plan-title {
+      font-size: 2rem;
+      color: #1dd4ff;
+      margin-bottom: 20px;
+    }
+    .plan-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .plan-option {
+      background: #1e293b;
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .plan-option:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 45px rgba(0, 255, 163, 0.3);
+    }
+    .plan-option h3 {
+      font-size: 1.4rem;
+      color: #facc15;
       margin-bottom: 10px;
-      animation: floatLogo 4s ease-in-out infinite;
     }
-
-    .logo-container img {
-      height: 100px; /* Puoi aumentare se vuoi più grande */
-      transition: transform 0.3s ease;
+    .plan-option p {
+      margin: 4px 0;
+      font-size: 0.95rem;
+      color: #cbd5e1;
     }
-
-    .logo-container img:hover {
-      transform: scale(1.1);
+    .add-to-cart {
+      margin-top: 14px;
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #00ffa3, #1dd4ff);
+      color: #0f172a;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
     }
-
-    @keyframes floatLogo {
-      0%, 100% {
-        transform: translateY(0px);
-      }
-      50% {
-        transform: translateY(-5px);
-      }
+    .add-to-cart:hover {
+      background: linear-gradient(90deg, #1dd4ff, #00ffa3);
     }
   </style>
 </head>
 <body>
+  <div id="bg"></div>
   <header>
-    <div class="logo-container animate__animated animate__fadeInDown">
-      <img src="logo-propital.png" alt="Logo Propital">
+    <div class="logo-container">
+      <a href="index.html"><img src="logo-propital.png" alt="Logo Propital"></a>
     </div>
     <nav>
       <a href="index.html">Home</a>
-      <a href="carrello.html" class="cart-icon">🛒<span class="cart-count" id="cart-count">0</span></a>
+      <a href="testimonianze.html">Testimonianze</a>
+      <a href="faq.html">FAQ</a>
+      <a href="carrello.html" class="cart-icon">
+        🛒<span class="cart-count" id="cart-count">0</span>
+      </a>
     </nav>
   </header>
-
   <h1>Piani Propital</h1>
+  <div class="plans-container" id="plans-root"></div>
 
-  <div class="piani-container">
-    <!-- Piano Evaluation -->
-    <div class="piano" data-aos="fade-up">
-      <h2>Evaluation</h2>
-      <div class="dimensione">
-        <h3>$10.000</h3>
-        <p>Fase 1: 6% </p>
-        <p>Fase 2: 5%</p>
-        <p>Drawdown Daily:  6%</p>
-        <p>Drawdown Max:  12%</p>
-        <p>Trading Period: No Time Limit</p>
-        <p>Leverage: 1:100</p>
-        <p>Profit Split: 90%</p>
-        <p>Payout: On Demand</p>
-        <p>Prezzo: €99</p>
-        <button class="add-to-cart-btn" data-name="Evaluation $10K" data-price="89">Aggiungi al carrello</button>
-      </div>
-      <div class="dimensione">
-        <h3>$25.000</h3>
-        <p>Fase 1: 6% </p>
-        <p>Fase 2: 5%</p>
-        <p>Drawdown Daily:  6%</p>
-        <p>Drawdown Max:  12%</p>
-        <p>Trading Period: No Time Limit</p>
-        <p>Leverage: 1:100</p>
-        <p>Profit Split: 90%</p>
-        <p>Payout: On Demand</p>
-        <p>Prezzo: €179</p>
-        <button class="add-to-cart-btn" data-name="Evaluation $25K" data-price="149">Aggiungi al carrello</button>
-      </div>
-      <div class="dimensione">
-        <h3>$50.000</h3>
-        <p>Fase 1: 6% </p>
-        <p>Fase 2: 5%</p>
-        <p>Drawdown Daily:  6%</p>
-        <p>Drawdown Max:  12%</p>
-        <p>Trading Period: No Time Limit</p>
-        <p>Leverage: 1:100</p>
-        <p>Profit Split: 90%</p>
-        <p>Payout: On Demand</p>
-        <p>Prezzo: €379</p>
-        <button class="add-to-cart-btn" data-name="Evaluation $50K" data-price="249">Aggiungi al carrello</button>
-      </div>
-      <div class="dimensione">
-        <h3>$100.000</h3>
-        <p>Fase 1: 6% </p>
-        <p>Fase 2: 5%</p>
-        <p>Drawdown Daily:  6%</p>
-        <p>Drawdown Max:  12%</p>
-        <p>Trading Period: No Time Limit</p>
-        <p>Leverage: 1:100</p>
-        <p>Profit Split: 90%</p>
-        <p>Payout: On Demand</p>
-        <p>Prezzo: €499</p>
-        <button class="add-to-cart-btn" data-name="Evaluation $100K" data-price="499">Aggiungi al carrello</button>
-      </div>
-      <div class="dimensione">
-        <h3>$150.000</h3>
-        <p>Fase 1: 6% </p>
-        <p>Fase 2: 5%</p>
-        <p>Drawdown Daily:  6%</p>
-        <p>Drawdown Max:  12%</p>
-        <p>Trading Period: No Time Limit</p>
-        <p>Leverage: 1:100</p>
-        <p>Profit Split: 90%</p>
-        <p>Payout: On Demand</p>
-        <p>Prezzo: €649</p>
-        <button class="add-to-cart-btn" data-name="Evaluation $150K" data-price="699">Aggiungi al carrello</button>
-      </div>
-      <div class="dimensione">
-        <h3>$200.000</h3>
-        <p>Fase 1: 6% </p>
-        <p>Fase 2: 5%</p>
-        <p>Drawdown Daily:  6%</p>
-        <p>Drawdown Max:  12%</p>
-        <p>Trading Period: No Time Limit</p>
-        <p>Leverage: 1:100</p>
-        <p>Profit Split: 90%</p>
-        <p>Payout: On Demand</p>
-        <p>Prezzo: €899</p>
-        <button class="add-to-cart-btn" data-name="Evaluation $200K" data-price="899">Aggiungi al carrello</button>
-      </div>
-      <div class="dimensione">
-        <h3>$300.000</h3>
-        <p>Fase 1: 6% </p>
-        <p>Fase 2: 5%</p>
-        <p>Drawdown Daily:  6%</p>
-        <p>Drawdown Max:  12%</p>
-        <p>Trading Period: No Time Limit</p>
-        <p>Leverage: 1:100</p>
-        <p>Profit Split: 90%</p>
-        <p>Payout: On Demand</p>
-        <p>Prezzo: €1099</p>
-        <button class="add-to-cart-btn" data-name="Evaluation $300K" data-price="1299">Aggiungi al carrello</button>
-      </div>
-    </div>
-
-    <!-- Piano Pro -->
-    <div class="piano" data-aos="fade-up" data-aos-delay="100">
-      <h2>Pro</h2>
-      <div class="dimensione">
-        <h3>$10.000</h3>
-        <p>Obiettivo unico: 7%</p>
-        <p>Drawdown Daily:  4%</p>
-        <p>Drawdown Max:  10%</p>
-        <p>Trading Period: No Time Limit</p>
-        <p>Leverage: 1:50</p>
-        <p>Profit Split: 85%</p>
-        <p>Payout: On Demand</p>
-        <p>Prezzo: €129</p>
-        <button class="add-to-cart-btn" data-name="Pro $10K" data-price="109">Aggiungi al carrello</button>
-      </div>
-      <div class="dimensione">
-        <h3>$25.000</h3>
-        <p>Obiettivo unico: 7%</p>
-        <p>Drawdown Daily:  4%</p>
-        <p>Drawdown Max:  10%</p>
-        <p>Trading Period: No Time Limit</p>
-        <p>Leverage: 1:50</p>
-        <p>Profit Split: 85%</p>
-        <p>Payout: On Demand</p>
-        <p>Prezzo: €249</p>
-        <button class="add-to-cart-btn" data-name="Pro $25K" data-price="179">Aggiungi al carrello</button>
-      </div>
-      <div class="dimensione">
-        <h3>$50.000</h3>
-        <p>Obiettivo unico: 7%</p>
-        <p>Drawdown Daily:  4%</p>
-        <p>Drawdown Max:  10%</p>
-        <p>Trading Period: No Time Limit</p>
-        <p>Leverage: 1:50</p>
-        <p>Profit Split: 85%</p>
-        <p>Payout: On Demand</p>
-        <p>Prezzo: €389</p>
-        <button class="add-to-cart-btn" data-name="Pro $50K" data-price="279">Aggiungi al carrello</button>
-      </div>
-      <div class="dimensione">
-        <h3>$100.000</h3>
-        <p>Obiettivo unico: 7%</p>
-        <p>Drawdown Daily:  4%</p>
-        <p>Drawdown Max:  10%</p>
-        <p>Trading Period: No Time Limit</p>
-        <p>Leverage: 1:50</p>
-        <p>Profit Split: 85%</p>
-        <p>Payout: On Demand</p>
-        <p>Prezzo: €649</p>
-        <button class="add-to-cart-btn" data-name="Pro $100K" data-price="549">Aggiungi al carrello</button>
-      </div>
-      <div class="dimensione">
-        <h3>$150.000</h3>
-        <p>Obiettivo unico: 7%</p>
-        <p>Drawdown Daily:  4%</p>
-        <p>Drawdown Max:  10%</p>
-        <p>Trading Period: No Time Limit</p>
-        <p>Leverage: 1:50</p>
-        <p>Profit Split: 85%</p>
-        <p>Payout: On Demand</p>
-        <p>Prezzo: €849</p>
-        <button class="add-to-cart-btn" data-name="Pro $150K" data-price="749">Aggiungi al carrello</button>
-      </div>
-      <div class="dimensione">
-        <h3>$200.000</h3>
-        <p>Obiettivo unico: 7%</p>
-        <p>Drawdown Daily:  4%</p>
-        <p>Drawdown Max:  10%</p>
-        <p>Trading Period: No Time Limit</p>
-        <p>Leverage: 1:50</p>
-        <p>Profit Split: 85%</p>
-        <p>Payout: On Demand</p>
-        <p>Prezzo: €1099</p>
-        <button class="add-to-cart-btn" data-name="Pro $200K" data-price="949">Aggiungi al carrello</button>
-      </div>
-      <div class="dimensione">
-        <h3>$300.000</h3>
-        <p>Obiettivo unico: 7%</p>
-        <p>Drawdown Daily:  4%</p>
-        <p>Drawdown Max:  10%</p>
-        <p>Trading Period: No Time Limit</p>
-        <p>Leverage: 1:50</p>
-        <p>Profit Split: 85%</p>
-        <p>Payout: On Demand</p>
-        <p>Prezzo: €1499</p>
-        <button class="add-to-cart-btn" data-name="Pro $300K" data-price="1399">Aggiungi al carrello</button>
-      </div>
-    </div>
-
-    <!-- Piano Instant -->
-    <div class="piano" data-aos="fade-up" data-aos-delay="200">
-      <h2>Instant</h2>
-      <div class="dimensione">
-        <h3>$10.000</h3>
-        <p>Nessun obiettivo richiesto</p>
-        <p>Drawdown Daily:  6%</p>
-        <p>Drawdown Max:  12%</p>
-        <p>Trading Period: No Time Limit</p>
-        <p>Leverage: 1:100</p>
-        <p>Profit Split: 95%</p>
-        <p>Payout: On Demand</p>
-        <p>Prezzo: €249</p>
-        <button class="add-to-cart-btn" data-name="Instant $10K" data-price="129">Aggiungi al carrello</button>
-      </div>
-      <div class="dimensione">
-        <h3>$25.000</h3>
-        <p>Nessun obiettivo richiesto</p>
-        <p>Drawdown Daily:  6%</p>
-        <p>Drawdown Max:  12%</p>
-        <p>Trading Period: No Time Limit</p>
-        <p>Leverage: 1:100</p>
-        <p>Profit Split: 95%</p>
-        <p>Payout: On Demand</p>
-        <p>Prezzo: €449</p>
-        <button class="add-to-cart-btn" data-name="Instant $25K" data-price="199">Aggiungi al carrello</button>
-      </div>
-      <div class="dimensione">
-        <h3>$50.000</h3>
-        <p>Nessun obiettivo richiesto</p>
-        <p>Drawdown Daily:  6%</p>
-        <p>Drawdown Max:  12%</p>
-        <p>Trading Period: No Time Limit</p>
-        <p>Leverage: 1:100</p>
-        <p>Profit Split: 95%</p>
-        <p>Payout: On Demand</p>
-        <p>Prezzo: €649</p>
-        <button class="add-to-cart-btn" data-name="Instant $50K" data-price="299">Aggiungi al carrello</button>
-      </div>
-      <div class="dimensione">
-        <h3>$100.000</h3>
-        <p>Nessun obiettivo richiesto</p>
-        <p>Drawdown Daily:  6%</p>
-        <p>Drawdown Max:  12%</p>
-        <p>Trading Period: No Time Limit</p>
-        <p>Leverage: 1:100</p>
-        <p>Profit Split: 95%</p>
-        <p>Payout: On Demand</p>
-        <p>Prezzo: €929</p>
-        <button class="add-to-cart-btn" data-name="Instant $100K" data-price="599">Aggiungi al carrello</button>
-      </div>
-      <div class="dimensione">
-        <h3>$150.000</h3>
-        <p>Nessun obiettivo richiesto</p>
-        <p>Drawdown Daily:  6%</p>
-        <p>Drawdown Max:  12%</p>
-        <p>Trading Period: No Time Limit</p>
-        <p>Leverage: 1:100</p>
-        <p>Profit Split: 95%</p>
-        <p>Payout: On Demand</p>
-        <p>Prezzo: €1399</p>
-        <button class="add-to-cart-btn" data-name="Instant $150K" data-price="799">Aggiungi al carrello</button>
-      </div>
-      <div class="dimensione">
-        <h3>$200.000</h3>
-        <p>Nessun obiettivo richiesto</p>
-        <p>Drawdown Daily:  6%</p>
-        <p>Drawdown Max:  12%</p>
-        <p>Trading Period: No Time Limit</p>
-        <p>Leverage: 1:100</p>
-        <p>Profit Split: 95%</p>
-        <p>Payout: On Demand</p>
-        <p>Prezzo: €1749</p>
-        <button class="add-to-cart-btn" data-name="Instant $200K" data-price="999">Aggiungi al carrello</button>
-      </div>
-      <div class="dimensione">
-        <h3>$300.000</h3>
-        <p>Nessun obiettivo richiesto</p>
-        <p>Drawdown Daily:  6%</p>
-        <p>Drawdown Max:  12%</p>
-        <p>Trading Period: No Time Limit</p>
-        <p>Leverage: 1:100</p>
-        <p>Profit Split: 95%</p>
-        <p>Payout: On Demand</p>
-        <p>Prezzo: €1999</p>
-        <button class="add-to-cart-btn" data-name="Instant $300K" data-price="1499">Aggiungi al carrello</button>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <p>&copy; 2025 Propital. Tutti i diritti riservati.</p>
-  </footer>
-
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init();
-
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
     function updateCartCount() {
       document.getElementById('cart-count').textContent = cart.length;
     }
-
-    document.querySelectorAll('button[data-name]').forEach(button => {
-      button.addEventListener('click', () => {
-        const name = button.dataset.name;
-        const price = parseFloat(button.dataset.price);
-
+    document.addEventListener('click', e => {
+      if (e.target.classList.contains('add-to-cart')) {
+        const name = e.target.dataset.name;
+        const price = parseFloat(e.target.dataset.price);
         cart.push({ name, price });
         localStorage.setItem('cart', JSON.stringify(cart));
         updateCartCount();
-      });
+      }
     });
 
+    const plans = {
+      Evaluation: [
+        { size: "$10.000", price: 99, button: 89 },
+        { size: "$25.000", price: 179, button: 149 },
+        { size: "$50.000", price: 379, button: 249 },
+        { size: "$100.000", price: 499, button: 499 },
+        { size: "$150.000", price: 649, button: 699 },
+        { size: "$200.000", price: 899, button: 899 },
+        { size: "$300.000", price: 1099, button: 1299 },
+      ],
+      Pro: [
+        { size: "$10.000", price: 129, button: 109 },
+        { size: "$25.000", price: 249, button: 179 },
+        { size: "$50.000", price: 389, button: 279 },
+        { size: "$100.000", price: 649, button: 549 },
+        { size: "$150.000", price: 849, button: 749 },
+        { size: "$200.000", price: 1099, button: 949 },
+        { size: "$300.000", price: 1499, button: 1399 },
+      ],
+      Instant: [
+        { size: "$10.000", price: 249, button: 129 },
+        { size: "$25.000", price: 449, button: 199 },
+        { size: "$50.000", price: 649, button: 299 },
+        { size: "$100.000", price: 929, button: 599 },
+        { size: "$150.000", price: 1399, button: 799 },
+        { size: "$200.000", price: 1749, button: 999 },
+        { size: "$300.000", price: 1999, button: 1499 },
+      ]
+    };
+
+    const descriptions = {
+      Evaluation: ["Fase 1: 6%", "Fase 2: 5%", "Drawdown Daily: 6%", "Drawdown Max: 12%", "Trading Period: No Time Limit", "Leverage: 1:100", "Profit Split: 90%", "Payout: On Demand"],
+      Pro: ["Obiettivo unico: 7%", "Drawdown Daily: 4%", "Drawdown Max: 10%", "Trading Period: No Time Limit", "Leverage: 1:50", "Profit Split: 85%", "Payout: On Demand"],
+      Instant: ["Nessun obiettivo richiesto", "Drawdown Daily: 6%", "Drawdown Max: 12%", "Trading Period: No Time Limit", "Leverage: 1:100", "Profit Split: 95%", "Payout: On Demand"]
+    };
+
+    const container = document.getElementById('plans-root');
+    Object.keys(plans).forEach(category => {
+      const section = document.createElement('div');
+      section.className = 'plan-section';
+      section.innerHTML = `<h2 class="plan-title">${category}</h2>`;
+
+      const grid = document.createElement('div');
+      grid.className = 'plan-grid';
+
+      plans[category].forEach(plan => {
+        const option = document.createElement('div');
+        option.className = 'plan-option';
+        option.innerHTML = `<h3>${plan.size}</h3>` +
+          descriptions[category].map(d => `<p>${d}</p>`).join('') +
+          `<p><strong>Prezzo:</strong> €${plan.price}</p>` +
+          `<button class="add-to-cart" data-name="${category} ${plan.size}" data-price="${plan.button}">Aggiungi al carrello</button>`;
+        grid.appendChild(option);
+      });
+
+      section.appendChild(grid);
+      container.appendChild(section);
+    });
     updateCartCount();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script>
+    VANTA.NET({
+      el: "#bg",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.0,
+      scaleMobile: 1.0,
+      color: 0x00ffa3,
+      backgroundColor: 0x0f172a,
+      points: 10.0,
+      maxDistance: 22.0,
+      spacing: 18.0
+    });
   </script>
 </body>
 </html>
