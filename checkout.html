@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -144,7 +145,7 @@
 
   const geometry = new THREE.PlaneGeometry(100, 100, 100, 100);
   const material = new THREE.ShaderMaterial({
-    vertexShader: `
+    vertexShader: \`
       varying vec2 vUv;
       varying float vZ;
       uniform float time;
@@ -156,8 +157,8 @@
         vZ = pos.z;
         gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
       }
-    `,
-    fragmentShader: `
+    \`,
+    fragmentShader: \`
       varying vec2 vUv;
       varying float vZ;
       void main() {
@@ -165,7 +166,7 @@
         float intensity = 1.0 - abs(vZ) * 0.1;
         gl_FragColor = vec4(glowColor * intensity, 0.5);
       }
-    `,
+    \`,
     uniforms: {
       time: { value: 0.0 }
     },
@@ -197,7 +198,7 @@
 
   function loadCart() {
     cartItems = JSON.parse(localStorage.getItem('cart') || '[]');
-    if (!Array.isArray(cartItems)) cartItems = []; // ← Aggiunta sicurezza
+    if (!Array.isArray(cartItems)) cartItems = [];
 
     const container = document.getElementById('checkout-items');
     const totalEl = document.getElementById('checkout-total');
@@ -239,11 +240,11 @@
     };
 
     try {
-      const response = await fetch("https://mainnet.demo.btcpayserver.org/api/v1/stores/94wStG2u3FeRfc57fYupuYmkkzGj5akoZztBLRpax53a/invoices", {
+      const response = await fetch("https://btcpay0.voltageapp.io/api/v1/stores/2oSCUdwf8r85v98ocHZLX1cLbS3wcG99ai8a5GZz4PT7/invoices", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": "token f2664793dcd58a44c03a0f4fc7590c838ebc48b0"
+          "Authorization": "token INSERISCI_IL_TUO_TOKEN_PERSONALE"
         },
         body: JSON.stringify(payload)
       });
