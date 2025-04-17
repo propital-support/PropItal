@@ -80,10 +80,10 @@
 
     <div class="section">
       <h2>📄 Dettagli del Piano</h2> 
-      <p><strong>Piano acquistato:</strong> Instant <span id="piano"></span></p>
-      <p><strong>Capitale:</strong> $10.000 <span id="capitale"></span></p>
-      <p><strong>Data acquisto:</strong> 17/04/2025 <span id="data"></span></p>
-      <p><strong>Stato:</strong> Attivo  <span id="stato"></span></p>
+      <p><strong>Piano acquistato:</strong>  <span id="piano"></span></p>
+      <p><strong>Capitale:</strong>  <span id="capitale"></span></p>
+      <p><strong>Data acquisto:</strong>  <span id="data"></span></p>
+      <p><strong>Stato:</strong>  <span id="stato"></span></p>
     </div>
 
     <div class="section">
@@ -182,10 +182,10 @@
       document.getElementById("cronologia").innerHTML = `<li>${acquisto.nome} acquistato in data ${today}</li>`;
     } else {
       // Nessun acquisto: dashboard vuota
-      pianoEl.textContent = "Nessun piano acquistato";
-      capitaleEl.textContent = "-";
-      dataEl.textContent = "-";
-      statoEl.textContent = "Inattivo";
+      pianoEl.textContent = "Instant";
+      capitaleEl.textContent = "10.000$";
+      dataEl.textContent = "17/04/2025";
+      statoEl.textContent = "Attivo";
 
       document.getElementById("barra").style.width = "0%";
     }
