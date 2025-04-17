@@ -1,64 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
   <url>
-    <loc>https://www.propital.com/</loc>
-    <lastmod>2025-04-17</lastmod>
-    <priority>1.00</priority>
+    <loc>https://supportpropital.site/index.html</loc>
   </url>
-
   <url>
-    <loc>https://www.propital.com/piani.html</loc>
-    <lastmod>2025-04-17</lastmod>
-    <priority>0.90</priority>
+    <loc>https://supportpropital.site/piani.html</loc>
   </url>
-
   <url>
-    <loc>https://www.propital.com/carrello.html</loc>
-    <lastmod>2025-04-17</lastmod>
-    <priority>0.80</priority>
+    <loc>https://supportpropital.site/carrello.html</loc>
   </url>
-
   <url>
-    <loc>https://www.propital.com/checkout.html</loc>
-    <lastmod>2025-04-17</lastmod>
-    <priority>0.80</priority>
+    <loc>https://supportpropital.site/checkout.html</loc>
   </url>
-
   <url>
-    <loc>https://www.propital.com/dashboard.html</loc>
-    <lastmod>2025-04-17</lastmod>
-    <priority>0.70</priority>
+    <loc>https://supportpropital.site/dashboard.html</loc>
   </url>
-
   <url>
-    <loc>https://www.propital.com/testimonianze.html</loc>
-    <lastmod>2025-04-17</lastmod>
-    <priority>0.60</priority>
+    <loc>https://supportpropital.site/auth.html</loc>
   </url>
-
   <url>
-    <loc>https://www.propital.com/faq.html</loc>
-    <lastmod>2025-04-17</lastmod>
-    <priority>0.60</priority>
+    <loc>https://supportpropital.site/terms.html</loc>
   </url>
-
   <url>
-    <loc>https://www.propital.com/terms.html</loc>
-    <lastmod>2025-04-17</lastmod>
-    <priority>0.50</priority>
+    <loc>https://supportpropital.site/faq.html</loc>
   </url>
-
   <url>
-    <loc>https://www.propital.com/thankyou.html</loc>
-    <lastmod>2025-04-17</lastmod>
-    <priority>0.50</priority>
+    <loc>https://supportpropital.site/testimonianze.html</loc>
   </url>
-
   <url>
-    <loc>https://www.propital.com/auth.html</loc>
-    <lastmod>2025-04-17</lastmod>
-    <priority>0.50</priority>
+    <loc>https://supportpropital.site/thankyou.html</loc>
   </url>
-
 </urlset>
