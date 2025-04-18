@@ -257,14 +257,14 @@
     };
 
     try {
-      const response = await fetch("https://mainnet.demo.btcpayserver.org/api/v1/stores/94wStG2u3FeRfc57fYupuYmkkzGj5akoZztBLRpax53a/invoices", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": "token f2664793dcd58a44c03a0f4fc7590c838ebc48b0"
-        },
-        body: JSON.stringify(payload)
-      });
+     const response = await fetch("https://btcpay0.voltageapp.io/api/v1/stores/2oSCUdwf8r85v98ocHZLX1cLbS3wcG99ai8a5GZz4PT7/invoices", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "Authorization": "token 3d7e2c008a58cf67218d6f60c47a3c185d23c95d"
+  },
+  body: JSON.stringify(payload)
+});
 
       if (!response.ok) {
         throw new Error("Errore nella creazione dell'ordine BTCPay");
