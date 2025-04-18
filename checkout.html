@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -10,33 +9,46 @@
 
 <body style="background:#050F2C; font-family: Arial, sans-serif; color:white;">
 
-  <!-- Logo in alto a sinistra -->
+  <!-- Logo -->
   <div style="position: absolute; top: 20px; left: 20px;">
     <img src="logo-propital.png" alt="Propital Logo" style="height: 60px;">
   </div>
 
+  <!-- Titolo -->
+  <h1 style="text-align:center; color: #00ffff;">Checkout Propital</h1>
 
-<body style="background:#050F2C; font-family: Arial, sans-serif; color:white;">
- <h1 style="text-align:center; color: #00ffff;">Checkout PropItal</h1>
-
+  <!-- Piattaforme -->
   <h2 style="text-align:center; margin-top: 40px; color:#00ffff;">Scegli la piattaforma di trading</h2>
   <div class="platform-selection" style="display: flex; justify-content: center; gap: 20px; margin-top: 20px; flex-wrap: wrap;">
-    <div class="platform" data-value="MT4" style="cursor:pointer; background:#ffffff11; padding:20px; border-radius:15px; transition:all 0.3s ease; text-align:center;">
-      <img src="logo-mt4.png" alt="MT4" style="width: 80px; height: 80px;"><br>
-      <span style="color:#fff;">MT4</span>
+    <div class="platform" data-value="MT4" style="cursor:pointer; background:#ffffff11; padding:20px; border-radius:15px; text-align:center;">
+      <img src="logo-mt4.png" alt="MT4" style="width: 80px; height: 80px;"><br><span>MT4</span>
     </div>
-    <div class="platform" data-value="MT5" style="cursor:pointer; background:#ffffff11; padding:20px; border-radius:15px; transition:all 0.3s ease; text-align:center;">
-      <img src="logo-mt5.png" alt="MT5" style="width: 80px; height: 80px;"><br>
-      <span style="color:#fff;">MT5</span>
+    <div class="platform" data-value="MT5" style="cursor:pointer; background:#ffffff11; padding:20px; border-radius:15px; text-align:center;">
+      <img src="logo-mt5.png" alt="MT5" style="width: 80px; height: 80px;"><br><span>MT5</span>
     </div>
-    <div class="platform" data-value="cTrader" style="cursor:pointer; background:#ffffff11; padding:20px; border-radius:15px; transition:all 0.3s ease; text-align:center;">
-      <img src="logo-ctrader.png" alt="cTrader" style="width: 80px; height: 80px;"><br>
-      <span style="color:#fff;">cTrader</span>
+    <div class="platform" data-value="cTrader" style="cursor:pointer; background:#ffffff11; padding:20px; border-radius:15px; text-align:center;">
+      <img src="logo-ctrader.png" alt="cTrader" style="width: 80px; height: 80px;"><br><span>cTrader</span>
     </div>
   </div>
+
+  <!-- Avviso -->
   <input type="hidden" id="platform-selected" value="">
   <p id="platform-warning" style="text-align:center; color:#ff7777; margin-top: 10px; display:none;">Seleziona una piattaforma prima di continuare.</p>
 
+  <!-- Tabella carrello -->
+  <table style="width: 60%; margin: 30px auto; background: #ffffff11; border-radius: 10px; padding: 20px;">
+    <thead>
+      <tr>
+        <th>Nome Piano</th>
+        <th>Prezzo</th>
+      </tr>
+    </thead>
+    <tbody id="cart-body"></tbody>
+  </table>
+
+  <p id="total-price" style="text-align:center; font-size: 18px; font-weight: bold;"></p>
+
+  <!-- Form pagamento -->
   <form id="payment-form" action="https://btcpay0.voltageapp.io/invoice" method="POST" style="text-align:center; margin-top: 30px;">
     <input type="hidden" name="storeId" value="2oSCUdwf8r85v98ocHZLX1cLbS3wcG99ai8a5GZz4PT7">
     <input type="hidden" name="checkoutDesc" id="checkoutDesc" value="">
@@ -44,12 +56,6 @@
     <input type="hidden" name="currency" value="USD">
     <button type="submit" style="padding: 12px 30px; background-color: #00ffff; border: none; border-radius: 8px; color: #000; font-weight: bold; font-size: 16px; cursor: pointer;">Paga con Bitcoin</button>
   </form>
-
-  <table style="width: 60%; margin: 30px auto; background: #ffffff11; border-radius: 10px; padding: 20px;">
-    <thead><tr><th>Nome Piano</th><th>Prezzo</th></tr></thead>
-    <tbody id="cart-body"></tbody>
-  </table>
-  <p id="total-price" style="text-align:center; font-size: 18px; font-weight: bold;"></p>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -60,24 +66,23 @@
       const checkoutDescInput = document.getElementById('checkoutDesc');
       const platformWarning = document.getElementById('platform-warning');
       const platformSelected = document.getElementById('platform-selected');
+
       let total = 0;
       let descriptionList = [];
 
       cart.forEach(item => {
         const row = document.createElement('tr');
-        const nameCell = document.createElement('td');
-        const priceCell = document.createElement('td');
-        nameCell.textContent = item.name;
-        priceCell.textContent = `$${item.price}`;
-        row.appendChild(nameCell);
-        row.appendChild(priceCell);
+        row.innerHTML = `
+          <td>${item.name}</td>
+          <td>$${item.price.toFixed(2)}</td>
+        `;
         cartBody.appendChild(row);
         total += item.price;
         descriptionList.push(item.name);
       });
 
-      totalPriceElement.textContent = `Totale: $${total}`;
-      btcPriceInput.value = total;
+      totalPriceElement.textContent = `Totale: $${total.toFixed(2)}`;
+      btcPriceInput.value = total.toFixed(2);
 
       const platforms = document.querySelectorAll('.platform');
       platforms.forEach(p => {
