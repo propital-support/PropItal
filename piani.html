@@ -1,242 +1,196 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Piani Propital</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Outfit', sans-serif;
-      background: #0f172a;
-      color: white;
-      overflow-x: hidden;
-    }
-    #bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      width: 100vw;
-      height: 100vh;
-    }
-    header {
-      padding: 10px 20px;
-      background: #111827;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .logo-container img {
-      height: 60px;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: 600;
-      font-size: 1rem;
-    }
-    .cart-icon {
-      position: relative;
-      font-size: 1.5rem;
-    }
-    .cart-count {
-      position: absolute;
-      top: -8px;
-      right: -10px;
-      background: red;
-      color: white;
-      border-radius: 50%;
-      padding: 2px 6px;
-      font-size: 0.75rem;
-    }
-    h1 {
-      font-size: 3rem;
-      margin: 40px 0 20px;
-      text-align: center;
-      background: linear-gradient(90deg, #00ffa3, #1dd4ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .plans-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 60px;
-      padding: 40px 20px;
-    }
-    .plan-section {
-      width: 100%;
-      max-width: 1200px;
-      border-left: 6px solid #00ffa3;
-      padding-left: 24px;
-    }
-    .plan-title {
-      font-size: 2rem;
-      color: #1dd4ff;
-      margin-bottom: 20px;
-    }
-    .plan-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .plan-option {
-      background: #1e293b;
-      border-radius: 18px;
-      padding: 24px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .plan-option:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 45px rgba(0, 255, 163, 0.3);
-    }
-    .plan-option h3 {
-      font-size: 1.4rem;
-      color: #facc15;
-      margin-bottom: 10px;
-    }
-    .plan-option p {
-      margin: 4px 0;
-      font-size: 0.95rem;
-      color: #cbd5e1;
-    }
-    .add-to-cart {
-      margin-top: 14px;
-      width: 100%;
-      padding: 12px;
-      font-size: 1rem;
-      font-weight: 700;
-      background: linear-gradient(90deg, #00ffa3, #1dd4ff);
-      color: #0f172a;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    .add-to-cart:hover {
-      background: linear-gradient(90deg, #1dd4ff, #00ffa3);
-    }
-  </style>
-</head>
-<body>
-  <div id="bg"></div>
-  <header>
-    <div class="logo-container">
-      <a href="index.html"><img src="logo-propital.png" alt="Logo Propital"></a>
+<section class="pricing-section" style="font-family: 'Outfit', sans-serif; background: #0f172a; color: white; padding: 4rem 2rem;">
+
+  <!-- Navbar con logo e pulsanti -->
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+    <div>
+      <img src="logo-propital.png" alt="Propital Logo" style="height: 70px;">
     </div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="testimonianze.html">Testimonianze</a>
-      <a href="faq.html">FAQ</a>
-      <a href="carrello.html" class="cart-icon">
-        🛒<span class="cart-count" id="cart-count">0</span>
+    <div style="display: flex; gap: 1rem; align-items: center;">
+      <a href="index.html" style="color: #1dd4ff; text-decoration: none; font-weight: bold;">Home</a>
+      <a href="auth.html" style="color: #1dd4ff; text-decoration: none; font-weight: bold;">Accedi</a>
+      <a href="carrello.html" style="position: relative;">
+        <img src="/img/cart-icon.png" alt="Carrello" style="height: 30px;">
+        <span id="cart-count" style="position: absolute; top: -8px; right: -8px; background: #00ffa3; color: black; border-radius: 50%; padding: 0 6px; font-size: 0.75rem;">0</span>
       </a>
-    </nav>
-  </header>
-  <h1>Piani Propital</h1>
-  <div class="plans-container" id="plans-root"></div>
+    </div>
+  </div>
 
-  <script>
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    function updateCartCount() {
-      document.getElementById('cart-count').textContent = cart.length;
-    }
-    document.addEventListener('click', e => {
-      if (e.target.classList.contains('add-to-cart')) {
-        const name = e.target.dataset.name;
-        const price = parseFloat(e.target.dataset.price);
-        cart.push({ name, price });
-        localStorage.setItem('cart', JSON.stringify(cart));
-        updateCartCount();
-      }
+  <h1 style="text-align: center; font-size: 2.8rem; background: linear-gradient(90deg, #00ffa3, #1dd4ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Confronta i nostri piani</h1>
+
+  <!-- Selettore Piano -->
+  <div style="text-align: center; margin-top: 2rem;">
+    <h2 style="font-size: 2rem; color: #1dd4ff;">Scegli il piano</h2>
+    <div id="plan-buttons" style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;">
+      <button class="plan-select" data-plan="evaluation">Evaluation</button>
+      <button class="plan-select" data-plan="pro">Pro</button>
+      <button class="plan-select" data-plan="instant">Instant</button>
+    </div>
+  </div>
+
+  <!-- Selettore Dimensione Capitale -->
+  <div style="margin-top: 2rem; text-align: center;">
+    <h2 style="font-size: 1.6rem; color: #1dd4ff;">Seleziona la dimensione del capitale</h2>
+    <div id="size-buttons" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 1rem; transition: all 0.4s ease;"></div>
+  </div>
+
+  <!-- Tabella Caratteristiche -->
+  <div style="overflow-x: auto; margin-top: 4rem;">
+    <table style="width: 100%; border-collapse: collapse; min-width: 900px;">
+      <thead>
+        <tr style="background-color: #1e293b;">
+          <th style="padding: 1rem; text-align: left; color: #c0f0ff;">Caratteristiche</th>
+          <th style="padding: 1rem; text-align: center; color: #00ffa3;">Evaluation</th>
+          <th style="padding: 1rem; text-align: center; color: #00ffa3;">Pro</th>
+          <th style="padding: 1rem; text-align: center; color: #00ffa3;">Instant</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding: 1rem; border-bottom: 1px solid #334155; color: #c0f0ff;">Obiettivo Fase 1</td><td style="text-align: center; color: #a5f3fc;">6%</td><td style="text-align: center; color: #a5f3fc;">7%</td><td style="text-align: center; color: #a5f3fc;">N/A</td></tr>
+        <tr><td style="padding: 1rem; border-bottom: 1px solid #334155; color: #c0f0ff;">Obiettivo Fase 2</td><td style="text-align: center; color: #a5f3fc;">5%</td><td style="text-align: center; color: #a5f3fc;">N/A</td><td style="text-align: center; color: #a5f3fc;">N/A</td></tr>
+        <tr><td style="padding: 1rem; border-bottom: 1px solid #334155; color: #c0f0ff;">Drawdown Giornaliero</td><td style="text-align: center; color: #a5f3fc;">6%</td><td style="text-align: center; color: #a5f3fc;">4%</td><td style="text-align: center; color: #a5f3fc;">6%</td></tr>
+        <tr><td style="padding: 1rem; border-bottom: 1px solid #334155; color: #c0f0ff;">Drawdown Massimo</td><td style="text-align: center; color: #a5f3fc;">12%</td><td style="text-align: center; color: #a5f3fc;">10%</td><td style="text-align: center; color: #a5f3fc;">12%</td></tr>
+        <tr><td style="padding: 1rem; border-bottom: 1px solid #334155; color: #c0f0ff;">Periodo di Trading</td><td style="text-align: center; color: #a5f3fc;">Senza limite</td><td style="text-align: center; color: #a5f3fc;">Senza limite</td><td style="text-align: center; color: #a5f3fc;">Senza limite</td></tr>
+        <tr><td style="padding: 1rem; border-bottom: 1px solid #334155; color: #c0f0ff;">Leva Finanziaria</td><td style="text-align: center; color: #a5f3fc;">1:100</td><td style="text-align: center; color: #a5f3fc;">1:50</td><td style="text-align: center; color: #a5f3fc;">1:100</td></tr>
+        <tr><td style="padding: 1rem; border-bottom: 1px solid #334155; color: #c0f0ff;">Profit Split</td><td style="text-align: center; color: #a5f3fc;">90%</td><td style="text-align: center; color: #a5f3fc;">85%</td><td style="text-align: center; color: #a5f3fc;">95%</td></tr>
+        <tr><td style="padding: 1rem; border-bottom: 1px solid #334155; color: #c0f0ff;">Payout</td><td style="text-align: center; color: #a5f3fc;">On Demand</td><td style="text-align: center; color: #a5f3fc;">On Demand</td><td style="text-align: center; color: #a5f3fc;">On Demand</td></tr>
+        <tr><td style="padding: 1rem; color: #c0f0ff;">Trading News / EA</td><td style="text-align: center; color: #a5f3fc;">✔️</td><td style="text-align: center; color: #a5f3fc;">✔️</td><td style="text-align: center; color: #a5f3fc;">✔️</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Prezzo + Aggiungi -->
+  <div style="margin-top: 2rem; display: flex; justify-content: space-between; flex-wrap: wrap; align-items: center;">
+    <div id="selected-price" style="font-size: 1.5rem; color: #00ffa3;">&nbsp;</div>
+    <button id="add-to-cart" class="add-to-cart" style="padding: 0.8rem 2rem; background-color: #1dd4ff; color: black; border: none; border-radius: 8px; font-weight: bold;">Aggiungi al carrello</button>
+  </div>
+</section>
+
+<script>
+  const plans = {
+    evaluation: { name: "Evaluation", prices: [99, 179, 299, 489, 639, 829, 1199] },
+    pro: { name: "Pro", prices: [139, 219, 359, 579, 739, 949, 1349] },
+    instant: { name: "Instant", prices: [189, 289, 429, 699, 869, 1079, 1549] },
+  };
+
+  const sizes = ["10K", "25K", "50K", "100K", "150K", "200K", "300K"];
+
+  const sizeButtonsDiv = document.getElementById("size-buttons");
+  const priceDiv = document.getElementById("selected-price");
+  const addToCartBtn = document.getElementById("add-to-cart");
+
+  let selectedPlan = "evaluation";
+  let selectedSizeIndex = 0;
+
+  function renderSizes(planKey) {
+    sizeButtonsDiv.innerHTML = "";
+    sizes.forEach((size, index) => {
+      const btn = document.createElement("button");
+      btn.textContent = `${size}`;
+      btn.style.padding = "0.5rem 1rem";
+      btn.style.borderRadius = "8px";
+      btn.style.border = "none";
+      btn.style.background = "#334155";
+      btn.style.color = "white";
+      btn.style.transition = "0.3s ease";
+      btn.style.cursor = "pointer";
+      btn.onclick = () => {
+        selectedSizeIndex = index;
+        updatePrice();
+      };
+      sizeButtonsDiv.appendChild(btn);
     });
+    sizeButtonsDiv.style.opacity = 0;
+    sizeButtonsDiv.style.transform = "translateY(10px)";
+    setTimeout(() => {
+      sizeButtonsDiv.style.opacity = 1;
+      sizeButtonsDiv.style.transform = "translateY(0)";
+    }, 100);
+  }
 
-    const plans = {
-      Evaluation: [
-        { size: "$10.000", price: 99, button: 99 },
-        { size: "$25.000", price: 179, button: 179 },
-        { size: "$50.000", price: 379, button: 379 },
-        { size: "$100.000", price: 499, button: 499 },
-        { size: "$150.000", price: 649, button: 649 },
-        { size: "$200.000", price: 899, button: 899 },
-        { size: "$300.000", price: 1099, button: 1099 },
-      ],
-      Pro: [
-        { size: "$10.000", price: 129, button: 129 },
-        { size: "$25.000", price: 249, button: 249 },
-        { size: "$50.000", price: 389, button: 389 },
-        { size: "$100.000", price: 649, button: 649 },
-        { size: "$150.000", price: 849, button: 849 },
-        { size: "$200.000", price: 1099, button: 1099 },
-        { size: "$300.000", price: 1499, button: 1499 },
-      ],
-      Instant: [
-        { size: "$10.000", price: 249, button: 249 },
-        { size: "$25.000", price: 449, button: 449 },
-        { size: "$50.000", price: 649, button: 649 },
-        { size: "$100.000", price: 929, button: 929 },
-        { size: "$150.000", price: 1399, button: 1399 },
-        { size: "$200.000", price: 1749, button: 1749 },
-        { size: "$300.000", price: 1999, button: 1999 },
-      ]
+  function updatePrice() {
+    const price = plans[selectedPlan].prices[selectedSizeIndex];
+    const planName = plans[selectedPlan].name;
+    const sizeLabel = sizes[selectedSizeIndex];
+    priceDiv.textContent = `${planName} ${sizeLabel} - €${price}`;
+    addToCartBtn.setAttribute("data-name", `${planName} ${sizeLabel}`);
+    addToCartBtn.setAttribute("data-price", price);
+  }
+
+  document.querySelectorAll(".plan-select").forEach(btn => {
+    btn.onclick = () => {
+      selectedPlan = btn.dataset.plan;
+      selectedSizeIndex = 0;
+      renderSizes(selectedPlan);
+      updatePrice();
     };
+  });
 
-    const descriptions = {
-      Evaluation: ["Fase 1: 6%", "Fase 2: 5%", "Drawdown Daily: 6%", "Drawdown Max: 12%", "Trading Period: No Time Limit", "Leverage: 1:100", "Profit Split: 90%", "Payout: On Demand"],
-      Pro: ["Obiettivo unico: 7%", "Drawdown Daily: 4%", "Drawdown Max: 10%", "Trading Period: No Time Limit", "Leverage: 1:50", "Profit Split: 85%", "Payout: On Demand"],
-      Instant: ["Nessun obiettivo richiesto", "Drawdown Daily: 6%", "Drawdown Max: 12%", "Trading Period: No Time Limit", "Leverage: 1:100", "Profit Split: 95%", "Payout: On Demand"]
+  // Inizializza con il primo piano
+  renderSizes(selectedPlan);
+  updatePrice();
+</script>
+
+
+<style>
+  /* Effetto 3D per tutti i bottoni */
+  button {
+    box-shadow: 0 4px #0d9488;
+    transition: all 0.15s ease-in-out;
+  }
+
+  button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px #0d9488;
+  }
+
+  button:hover {
+    opacity: 0.9;
+  }
+</style>
+
+<script>
+  // LOGO E CARRELLO - fallback per icone non visibili
+  document.querySelectorAll('img').forEach(img => {
+    img.onerror = () => {
+      img.style.display = 'none';
+      console.warn("Immagine non trovata:", img.src);
     };
+  });
 
-    const container = document.getElementById('plans-root');
-    Object.keys(plans).forEach(category => {
-      const section = document.createElement('div');
-      section.className = 'plan-section';
-      section.innerHTML = `<h2 class="plan-title">${category}</h2>`;
+  // AGGIUNTA AL CARRELLO
+  function updatePrice() {
+    const price = plans[selectedPlan].prices[selectedSizeIndex];
+    const size = sizes[selectedSizeIndex];
+    priceDiv.textContent = `${plans[selectedPlan].name} - ${size}: €${price}`;
+  }
 
-      const grid = document.createElement('div');
-      grid.className = 'plan-grid';
+  document.querySelectorAll('.plan-select').forEach(btn => {
+    btn.onclick = () => {
+      selectedPlan = btn.getAttribute('data-plan');
+      renderSizes(selectedPlan);
+      selectedSizeIndex = 0;
+      updatePrice();
+    };
+  });
 
-      plans[category].forEach(plan => {
-        const option = document.createElement('div');
-        option.className = 'plan-option';
-        option.innerHTML = `<h3>${plan.size}</h3>` +
-          descriptions[category].map(d => `<p>${d}</p>`).join('') +
-          `<p><strong>Prezzo:</strong> €${plan.price}</p>` +
-          `<button class="add-to-cart" data-name="${category} ${plan.size}" data-price="${plan.button}">Aggiungi al carrello</button>`;
-        grid.appendChild(option);
-      });
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    document.getElementById('cart-count').textContent = cart.length;
+  }
 
-      section.appendChild(grid);
-      container.appendChild(section);
-    });
+  addToCartBtn.addEventListener('click', () => {
+    const plan = plans[selectedPlan].name;
+    const size = sizes[selectedSizeIndex];
+    const price = plans[selectedPlan].prices[selectedSizeIndex];
+
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push({ plan, size, price });
+    localStorage.setItem('cart', JSON.stringify(cart));
     updateCartCount();
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-  <script>
-    VANTA.NET({
-      el: "#bg",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: false,
-      minHeight: 200.00,
-      minWidth: 200.00,
-      scale: 1.0,
-      scaleMobile: 1.0,
-      color: 0x00ffa3,
-      backgroundColor: 0x0f172a,
-      points: 10.0,
-      maxDistance: 22.0,
-      spacing: 18.0
-    });
-  </script>
-</body>
-</html>
+  });
+
+  // Inizializzazione
+  renderSizes(selectedPlan);
+  updatePrice();
+  updateCartCount();
+</script>
