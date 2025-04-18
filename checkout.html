@@ -321,7 +321,8 @@
     };
 
     try {
-      const response = await fetch("https://btcpay0.voltageapp.io/api/v1/stores/2oSCUdwf8r85v98ocHZLX1cLbS3wcG99ai8a5GZz4PT7/invoices", {
+      const response = await fetch("https://btcpay0.voltageapp.io/invoice?storeId=2oSCUdwf8r85v98ocHZLX1cLbS3wcG99ai8a5GZz4PT7&amount=50&currency=USD&checkoutDesc=Propital+10K+Plan&redirectURL=https://supportpropital.site/thankyou.html
+", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
