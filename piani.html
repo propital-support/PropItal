@@ -37,6 +37,29 @@
   <div style="overflow-x: auto; margin-top: 4rem;">
     <table style="width: 100%; border-collapse: collapse; min-width: 900px;">
       <thead>
+
+<style>
+  /* Rimuove margini e padding da tutta la pagina */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    background-color: #0f172a; /* tuo sfondo principale */
+    overflow-x: hidden;
+  }
+
+  body {
+    color: #a5f3fc; /* colore del testo */
+    font-family: 'Inter', sans-serif;
+  }
+</style>
+
+
         <tr style="background-color: #1e293b;">
           <th style="padding: 1rem; text-align: left; color: #c0f0ff;">Caratteristiche</th>
           <th style="padding: 1rem; text-align: center; color: #00ffa3;">Evaluation</th>
@@ -63,6 +86,15 @@
     <div id="selected-price" style="font-size: 1.5rem; color: #00ffa3;">&nbsp;</div>
     <button id="add-to-cart" class="add-to-cart" style="padding: 0.8rem 2rem; background-color: #1dd4ff; color: black; border: none; border-radius: 8px; font-weight: bold;">Aggiungi al carrello</button>
   </div>
+
+  <!-- Riempitivo per evitare spazio bianco -->
+  <div style="height: 200px;"></div>
+
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 2rem 1rem; background-color: #0f172a; color: #a5f3fc; font-size: 0.9rem; border-top: 1px solid #334155;">
+    © 2025 Propital. Tutti i diritti riservati.
+  </footer>
+
 </section>
 
 <script>
