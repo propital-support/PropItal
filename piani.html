@@ -9,7 +9,7 @@
       <a href="index.html" style="color: #1dd4ff; text-decoration: none; font-weight: bold;">Home</a>
       <a href="auth.html" style="color: #1dd4ff; text-decoration: none; font-weight: bold;">Accedi</a>
       <a href="carrello.html" style="position: relative;">
-        <img src="/img/cart-icon.png" alt="Carrello" style="height: 30px;">
+        <img src="carrello.png" alt="Carrello" style="height: 30px;">
         <span id="cart-count" style="position: absolute; top: -8px; right: -8px; background: #00ffa3; color: black; border-radius: 50%; padding: 0 6px; font-size: 0.75rem;">0</span>
       </a>
     </div>
@@ -194,3 +194,69 @@
   updatePrice();
   updateCartCount();
 </script>
+
+
+<style>
+  .highlighted {
+    box-shadow: 0 0 12px 3px #00ffa3;
+    background-color: #1e40af !important;
+    color: #00ffa3 !important;
+  }
+</style>
+
+<script>
+  const planButtons = document.querySelectorAll(".plan-select");
+
+  planButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      planButtons.forEach(btn => btn.classList.remove("highlighted"));
+      button.classList.add("highlighted");
+      selectedPlan = button.dataset.plan;
+      renderSizes(selectedPlan);
+      updatePrice();
+    });
+  });
+
+  function renderSizes(planKey) {
+    sizeButtonsDiv.innerHTML = "";
+    sizes.forEach((size, index) => {
+      const btn = document.createElement("button");
+      btn.textContent = `${size}`;
+      btn.style.padding = "0.5rem 1rem";
+      btn.style.borderRadius = "8px";
+      btn.style.border = "none";
+      btn.style.background = "#334155";
+      btn.style.color = "white";
+      btn.style.transition = "0.3s ease";
+      btn.style.cursor = "pointer";
+
+      if (index === selectedSizeIndex) {
+        btn.classList.add("highlighted");
+      }
+
+      btn.onclick = () => {
+        const allSizeButtons = document.querySelectorAll("#size-buttons button");
+        allSizeButtons.forEach(b => b.classList.remove("highlighted"));
+        btn.classList.add("highlighted");
+        selectedSizeIndex = index;
+        updatePrice();
+      };
+
+      sizeButtonsDiv.appendChild(btn);
+    });
+    sizeButtonsDiv.style.opacity = 0;
+    sizeButtonsDiv.style.transform = "translateY(10px)";
+    setTimeout(() => {
+      sizeButtonsDiv.style.opacity = 1;
+      sizeButtonsDiv.style.transform = "translateY(0)";
+    }, 100);
+  }
+
+  // Inizializza i bottoni al primo caricamento
+  document.addEventListener("DOMContentLoaded", () => {
+    renderSizes(selectedPlan);
+    updatePrice();
+    document.querySelector(`[data-plan="${selectedPlan}"]`).classList.add("highlighted");
+  });
+</script>
+
