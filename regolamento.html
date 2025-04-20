@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Regolamento di Trading - Propital</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(120deg, #0e1218, #0d1015);
+      color: white;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #0d1117;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    nav a {
+      margin-left: 1.2rem;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #1dd4ff;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 4rem auto;
+      padding: 2rem;
+      background-color: #11161e;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      background: linear-gradient(90deg, #00ffa3, #1dd4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    h2 {
+      margin-top: 2rem;
+      color: #00ffa3;
+    }
+
+    ul {
+      margin-top: 1rem;
+      padding-left: 1.5rem;
+      color: #ccc;
+    }
+
+    p {
+      line-height: 1.7;
+      margin-top: 1rem;
+      color: #ccc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #11161e;
+      color: #aaa;
+      margin-top: 4rem;
+    }
+
+    footer a {
+      color: #00ffa3;
+      text-decoration: none;
+    }
+
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      animation: floatLogo 4s ease-in-out infinite;
+    }
+
+    .logo-container img {
+      height: 100px;
+      transition: transform 0.3s ease;
+    }
+
+    .logo-container img:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes floatLogo {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="logo-propital.png" alt="Logo Propital" />
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="piani.html">Piani</a>
+      <a href="carrello.html">Carrello</a>
+      <a href="checkout.html">Checkout</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="auth.html">Accedi</a>
+      <a href="terms.html">Termini</a>
+    </nav>
+  </header>
+
+  <div class="container" data-aos="fade-up">
+    <h1>Regolamento di Trading</h1>
+
+    <h2>1. Strategie Consentite</h2>
+    <ul>
+      <li>Scalping</li>
+      <li>Day trading</li>
+      <li>Swing trading</li>
+      <li>Trading discrezionale e tecnico</li>
+      <li>HFT "su piano valutazione PRO"</li>
+    </ul>
+
+    <h2>2. Strategie Vietate</h2>
+    <ul>
+      <li>Mirror trading</li>
+      <li>Gioco d'azzardo , rischiare oltre il 2% ad operazione</li>
+      <li>Latency arbitrage / HFT non autorizzato per i piani " Evaluation" e  "Instant"</li>
+    </ul>
+
+    <h2>3. Comportamenti Non Consentiti</h2>
+    <ul>
+      <li>Utilizzo di account multipli per scopi fraudolenti </li>
+      <li>Manipolazione del mercato o ordini sospetti</li>
+      <li>Condivisione o collegamento di più account tramite VPS</li>
+    </ul>
+
+    <h2>4. News Trading</h2>
+    <p>Consentito, ma eventuali abusi (spread eccessivi, slippage, esecuzioni anomale) possono comportare invalidazione dell'account.</p>
+
+    <h2>5. Drawdown</h2>
+    <p>Drawdown massimo: 10% | 12% (in base al piano scelto)<br/> Drawdown giornaliero: 4% | 6% (in base al piano scelto)<br/> Il superamento comporta la chiusura automatica dell'account.</p>
+
+    <h2>6. Obiettivi e Superamento del Challenge</h2>
+    <ul>
+      <li>Fase 1: +6% | +7%  (in base al piano scelto)</li>
+      <li>Fase 2: +5%</li>
+      <li>Minimo giorni di trading: 1 per fase</li>
+      <li>Nessun limite di tempo.</li>
+    </ul>
+
+    <h2>7. Account Violato</h2>
+    <ul>
+      <li>Superamento dei limiti di rischio</li>
+      <li>Utilizzo di tecniche vietate</li>
+      <li>Utilizzo di strumenti non autorizzati (bot, EA, copy trading)</li>
+    </ul>
+
+    <h2>8. Payout e Account Finanziato</h2>
+    <p>Dopo il superamento della fase di valutazione, il trader riceve un account con possibilità di guadagno fino all'95% dei profitti. I payout avvengono ogni 24h, previa revisione dell’attività e rispetto delle regole.</p>
+
+    <h2>9. Esempi di Violazioni Comuni</h2>
+    <ul>
+      <li>Aprire posizioni troppo grandi rispetto al saldo</li>
+      <li>Usare un EA non autorizzato anche per un solo trade</li>
+      <li>Usare HFT su piano non autorizzati</li>
+    </ul>
+
+    <h2>10. Conseguenze Disciplinari</h2>
+    <p>Ogni violazione comporta la terminazione immediata dell’account. In caso di recidiva o comportamento sospetto, Propital si riserva il diritto di escludere l’utente da futuri programmi.</p>
+
+    <h2>11. Contatti</h2>
+    <p>Per dubbi o supporto: <strong>support@propital.com</strong></p>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Propital. Tutti i diritti riservati. <a href="regolamento.html">Regolamento</a></p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>
