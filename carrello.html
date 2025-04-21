@@ -115,10 +115,10 @@
       items.forEach((item, index) => {
         const li = document.createElement("li");
         li.innerHTML = `
-          <strong>${item.name}</strong><br>
-          Prezzo: $${item.price ? parseFloat(item.price).toFixed(2) : '0.00'}
-          <button class="rimuovi" onclick="rimuoviDalCarrello(${index})">Rimuovi</button>
-        `;
+  <strong>${item.plan} ${item.size}</strong><br>
+  Prezzo: €${item.price ? parseFloat(item.price).toFixed(2) : '0.00'}
+  <button class="rimuovi" onclick="rimuoviDalCarrello(${index})">Rimuovi</button>
+`;
         listaCarrello.appendChild(li);
         totale += parseFloat(item.price) || 0; // Aggiunta di un fallback per evitare NaN
       });
