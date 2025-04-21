@@ -150,6 +150,63 @@
       }
     }
   </style>
+
+<style>
+.marquee {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  background-color: #0E0F11;
+  padding: 10px 0;
+}
+
+.marquee-content {
+  display: flex;
+  gap: 30px;
+  animation: scroll-left 30s linear infinite;
+  width: max-content;
+}
+
+.marquee-content img {
+  height: 100px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+@keyframes scroll-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+</style>
+<style>
+.marquee {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  background-color: #0E0F11;
+  padding: 10px 0;
+}
+
+.marquee-content {
+  display: flex;
+  gap: 30px;
+  animation: scroll-left 30s linear infinite;
+  width: max-content;
+}
+
+.marquee-content img {
+  height: 100px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+@keyframes scroll-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+</style>
+
+
 </head>
 <body>
   <div id="vanta-bg"></div>
@@ -207,6 +264,35 @@
       <p>Esplora tutti i nostri piani <strong><a href="piani.html" style="color:#00ffa3;">Evaluation - Pro - Instant</a></strong>,per iniziare la tua carriera da trader finanziato.</p>
     </div>
   </section>
+
+
+<div class="marquee">
+  <div class="marquee-content">
+    <img src="img1.png" >
+    <img src="img2.png" >
+    <img src="img3.png" >
+    <img src="img4.png" >
+    <img src="img5.png" >
+    <img src="img6.png" >
+    <img src="img7.png" >
+    <img src="img8.png" >
+    <img src="img9.png" >
+    <img src="img10.png" >
+    <img src="img1.png" >
+    <img src="img2.png" >
+    <img src="img3.png" >
+    <img src="img4.png" >
+    <img src="img5.png" >
+    <img src="img6.png" >
+    <img src="img7.png" >
+    <img src="img8.png" >
+    <img src="img9.png" >
+    <img src="img10.png" >  
+    <!-- continua con altre immagini -->
+  </div>
+</div>
+
+
 
   <section class="testimonials animate__animated animate__fadeInUp" data-aos="fade-up">
     <h2>Cosa dicono i nostri trader</h2>
@@ -269,7 +355,6 @@ s0.parentNode.insertBefore(s1,s0);
 
 </body>
 </html>
-
 
 
 
