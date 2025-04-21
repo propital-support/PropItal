@@ -195,7 +195,7 @@
     cartItems.forEach(item => {
       const div = document.createElement('div');
       div.className = 'checkout-item';
-      div.innerHTML = `<span>${item.name}</span><span>${item.price}€</span>`;
+      div.innerHTML = `<span>${item.plan} ${item.size}</span><span>${item.price}€</span>`;
       container.appendChild(div);
       total += parseFloat(item.price);
     });
