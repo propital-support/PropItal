@@ -22,15 +22,12 @@
       overflow-x: hidden;
       height: 100%;
     }
-    .background-video {
+    #vanta-bg {
       position: fixed;
-      top: 50%;
-      left: 50%;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      object-position: center 40;
-      transform: translate(-50%, -50%);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       z-index: -1;
     }
     header {
@@ -152,160 +149,209 @@
         font-size: 1rem;
       }
     }
-    .marquee {
-      overflow: hidden;
-      position: relative;
-      width: 100%;
-      padding: 10px 0;
-      background: transparent;
-    }
-    .marquee-content {
-      display: flex;
-      gap: 30px;
-      animation: scroll-left 30s linear infinite;
-      width: max-content;
-    }
-    .marquee-content img {
-      height: 180px;
-      object-fit: contain;
-      flex-shrink: 0;
-    }
-    @keyframes scroll-left {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
-    }
   </style>
+
+<style>
+.marquee {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 10px 0;
+  background: transparent; /* nessuno sfondo */
+}
+
+.marquee-content {
+  display: flex;
+  gap: 30px;
+  animation: scroll-left 30s linear infinite;
+  width: max-content;
+}
+
+.marquee-content img {
+  height: 180px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+@keyframes scroll-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+</style>
+<style>
+.marquee {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 10px 0;
+  background: transparent; /* nessuno sfondo */
+}
+
+.marquee-content {
+  display: flex;
+  gap: 30px;
+  animation: scroll-left 30s linear infinite;
+  width: max-content;
+}
+
+.marquee-content img {
+  height: 180px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+@keyframes scroll-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+</style>
+
+
 </head>
 <body>
+  <div id="vanta-bg"></div>
+  <header>
+    <div class="logo-container">
+      <img src="logo-propital.png" alt="Logo Propital">
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="piani.html">Piani</a>
+      <a href="checkout.html">Checkout</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="testimonianze.html">Testimonianze</a>
+      <a href="faq.html">FAQ</a>
+      <a href="regolamento.html">Regolamento</a>
+      <a href="terms.html">Termini</a>
+      <a href="auth.html">Accedi</a>
 
-<!-- Video di sfondo -->
-<video class="background-video" autoplay muted loop playsinline>
-  <source src="videosfondo.mp4" type="video/mp4">
-  Il tuo browser non supporta il video di sfondo.
-</video>
+    </nav>
+  </header>
+  <section class="hero animate__animated animate__fadeIn">
+    <h1>La tua carriera da trader inizia qui</h1>
+    <p>Propital ti offre capitale per fare trading. Concentrati sulla performance, noi pensiamo al resto.</p>
+    <a href="auth.html">Inizia ora</a>
+  </section>
 
-<div id="vanta-bg"></div>
-<header>
-  <div class="logo-container">
-    <img src="logo-propital.png" alt="Logo Propital">
-  </div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="piani.html">Piani</a>
-    <a href="checkout.html">Checkout</a>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="testimonianze.html">Testimonianze</a>
-    <a href="faq.html">FAQ</a>
-    <a href="regolamento.html">Regolamento</a>
-    <a href="terms.html">Termini</a>
-    <a href="auth.html">Accedi</a>
-  </nav>
-</header>
+  <section class="animate__animated animate__fadeInUp" data-aos="fade-up">
+    <h2>Pagamento garantito entro 24h</h2>
+    <div class="section-box">
+      <p>Garantiamo il pagamento dei tuoi profitti entro 24 ore dalla richiesta. Se non ricevi il pagamento entro questo tempo, <strong>ti accreditiamo 500$ extra</strong> come risarcimento. Con Propital, la tua fiducia è la nostra priorità.</p>
+    </div>
+  </section>
 
-<section class="hero animate__animated animate__fadeIn">
-  <h1>La tua carriera da trader inizia qui</h1>
-  <p>Propital ti offre capitale per fare trading. Concentrati sulla performance, noi pensiamo al resto.</p>
-  <a href="auth.html">Inizia ora</a>
-</section>
+  <section class="animate__animated animate__fadeInUp" data-aos="fade-up">
+    <h2>HFT consentito sui piani PRO</h2>
+    <div class="section-box">
+      <p>Su tutti i <strong>piani PRO</strong>, è consentito l’utilizzo di <strong>HFT (High Frequency Trading)</strong>. Questa opzione è valida solo in fase di valutazione. Approfitta del massimo potenziale dei tuoi strumenti tecnologici.</p>
+    </div>
+  </section>
 
-<section data-aos="fade-up">
-  <h2>Pagamento garantito entro 24h</h2>
-  <div class="section-box">
-    <p>Garantiamo il pagamento dei tuoi profitti entro 24 ore dalla richiesta. Se non ricevi il pagamento entro questo tempo, <strong>ti accreditiamo 500$ extra</strong> come risarcimento. Con Propital, la tua fiducia è la nostra priorità.</p>
-  </div>
-</section>
 
-<section data-aos="fade-up">
-  <h2>HFT consentito sui piani PRO</h2>
-  <div class="section-box">
-    <p>Su tutti i <strong>piani PRO</strong>, è consentito l’utilizzo di <strong>HFT (High Frequency Trading)</strong>. Questa opzione è valida solo in fase di valutazione. Approfitta del massimo potenziale dei tuoi strumenti tecnologici.</p>
-  </div>
-</section>
+<section class="animate__animated animate__fadeInUp" data-aos="fade-up">
+    <h2>Trading di notizie consentito</h2>
+    <div class="section-box">
+      <p>Nessuna restrizione. Su tutti i piani è consentito il trading durante le notizie .</p>
+    </div>
+  </section>
 
-<section data-aos="fade-up">
-  <h2>Trading di notizie consentito</h2>
-  <div class="section-box">
-    <p>Nessuna restrizione. Su tutti i piani è consentito il trading durante le notizie.</p>
-  </div>
-</section>
 
-<section data-aos="fade-up">
-  <h2>Piani disponibili</h2>
-  <div class="section-box">
-    <p>Esplora tutti i nostri piani <strong><a href="piani.html" style="color:#00ffa3;">Evaluation - Pro - Instant</a></strong>, per iniziare la tua carriera da trader finanziato.</p>
-  </div>
-</section>
+
+
+  <section class="animate__animated animate__fadeInUp" data-aos="fade-up">
+    <h2>Piani disponibili</h2>
+    <div class="section-box">
+      <p>Esplora tutti i nostri piani <strong><a href="piani.html" style="color:#00ffa3;">Evaluation - Pro - Instant</a></strong>,per iniziare la tua carriera da trader finanziato.</p>
+    </div>
+  </section>
+
 
 <div class="marquee">
   <div class="marquee-content">
-    <img src="img1.png"><img src="img2.png"><img src="img3.png"><img src="img4.png">
-    <img src="img5.png"><img src="img6.png"><img src="img7.png"><img src="img8.png">
-    <img src="img9.png"><img src="img10.png">
-    <img src="img1.png"><img src="img2.png"><img src="img3.png"><img src="img4.png">
-    <img src="img5.png"><img src="img6.png"><img src="img7.png"><img src="img8.png">
-    <img src="img9.png"><img src="img10.png">
+    <img src="img1.png" >
+    <img src="img2.png" >
+    <img src="img3.png" >
+    <img src="img4.png" >
+    <img src="img5.png" >
+    <img src="img6.png" >
+    <img src="img7.png" >
+    <img src="img8.png" >
+    <img src="img9.png" >
+    <img src="img10.png" >
+    <img src="img1.png" >
+    <img src="img2.png" >
+    <img src="img3.png" >
+    <img src="img4.png" >
+    <img src="img5.png" >
+    <img src="img6.png" >
+    <img src="img7.png" >
+    <img src="img8.png" >
+    <img src="img9.png" >
+    <img src="img10.png" >  
+    <!-- continua con altre immagini -->
   </div>
 </div>
 
-<section data-aos="fade-up">
-  <h2>Cosa dicono i nostri trader</h2>
-  <div class="section-box">
-    <p>Leggi le <strong><a href="testimonianze.html" style="color:#00ffa3;">testimonianze</a></strong> dei nostri trader che hanno ottenuto payout e successo grazie a Propital.</p>
-  </div>
-</section>
 
-<section data-aos="fade-up">
-  <h2>Domande frequenti</h2>
-  <div class="section-box">
-    <p>Consulta la sezione <strong><a href="faq.html" style="color:#00ffa3;">FAQ</a></strong> per rispondere a tutte le tue domande prima di iniziare.</p>
-  </div>
-</section>
 
-<section class="contacts" data-aos="fade-up">
-  <h2>Contattaci</h2>
-  <div class="section-box">
-    <p><i class="fas fa-envelope"></i>Email: support@propital.com</p>
-    <p><i class="fab fa-telegram-plane"></i>Telegram: @propital_support</p>
-    <p><i class="fab fa-instagram"></i>Instagram: @propital.funded</p>
-  </div>
-</section>
+  <section class="testimonials animate__animated animate__fadeInUp" data-aos="fade-up">
+    <h2>Cosa dicono i nostri trader</h2>
+    <div class="section-box">
+      <p>Leggi le <strong><a href="testimonianze.html" style="color:#00ffa3;">testimonianze</a></strong> dei nostri trader che hanno ottenuto payout e successo grazie a Propital.</p>
+    </div>
+  </section>
 
-<footer>
-  <p>&copy; 2025 Propital. Tutti i diritti riservati. <a href="terms.html">Termini d'uso</a></p>
-</footer>
+  <section class="faq animate__animated animate__fadeInUp" data-aos="fade-up">
+    <h2>Domande frequenti</h2>
+    <div class="section-box">
+      <p>Consulta la sezione <strong><a href="faq.html" style="color:#00ffa3;">FAQ</a></strong> per rispondere a tutte le tue domande prima di iniziare.</p>
+    </div>
+  </section>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init();</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.halo.min.js"></script>
-<script>
-  VANTA.HALO({
-    el: "#vanta-bg",
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    baseColor: 0x00ffa3,
-    backgroundColor: 0x0f172a,
-    amplitudeFactor: 2.0,
-    xOffset: 0.2,
-    size: 1.2,
-    waveSpeed: 0.3,
-    spacing: 15.0
-  });
-</script>
+  <section class="contacts animate__animated animate__fadeInUp" data-aos="fade-up">
+    <h2>Contattaci</h2>
+    <div class="section-box">
+      <p><i class="fas fa-envelope"></i>Email: support@propital.com</p>
+      <p><i class="fab fa-telegram-plane"></i>Telegram: @propital_support</p>
+      <p><i class="fab fa-instagram"></i>Instagram: @propital.funded</p>
+    </div>
+  </section>
+  <footer>
+    <p>&copy; 2025 Propital. Tutti i diritti riservati. <a href="terms.html">Termini d'uso</a></p>
+  </footer>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.halo.min.js"></script>
+  <script>
+    VANTA.HALO({
+      el: "#vanta-bg",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      baseColor: 0x00ffa3,
+      backgroundColor: 0x0f172a,
+      amplitudeFactor: 2.0,
+      xOffset: 0.2,
+      size: 1.2,
+      waveSpeed: 0.3,
+      spacing: 15.0
+    });
+  </script>
 
-<!-- Chat Tawk.to -->
+<!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
-  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-  s1.async=true;
-  s1.src='https://embed.tawk.to/68018eda0a7801190f1c3cce/1ip31c1dd';
-  s1.charset='UTF-8';
-  s1.setAttribute('crossorigin','*');
-  s0.parentNode.insertBefore(s1,s0);
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/68018eda0a7801190f1c3cce/1ip31c1dd';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
+<!--End of Tawk.to Script-->
 
 </body>
 </html>
