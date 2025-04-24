@@ -1,12 +1,12 @@
-
 <!DOCTYPE html>
+
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Accesso - Propital</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Accesso - Propital</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<style>
     body {
       font-family: 'Inter', sans-serif;
       background-color: #0e1218;
@@ -61,55 +61,114 @@
       text-decoration: underline;
     }
   </style>
-</head>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+            body {
+                font-family: 'Outfit', sans-serif;
+                margin: 0;
+                padding: 2rem;
+                background: #1a1a1a;
+                color: #f0f0f0;
+            }
+            h1, h2, h3 {
+                color: #00c3ff;
+            }
+            a {
+                color: #00c3ff;
+            }
+            section {
+                margin-bottom: 2rem;
+            }
+        </style>
+<style>
+body {
+    background-color: #0e0e10;
+    color: #E0E0E0;
+}
+a {
+    color: #00C9FF;
+}
+h1, h2, h3, h4 {
+    color: #00FFF7;
+    text-shadow: 0 0 5px #00FFF7;
+}
+button {
+    background-color: #00FFF7;
+    color: #0e0e10;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+button:hover {
+    background-color: #00AFAA;
+    transform: scale(1.05);
+}
+footer {
+    background-color: #1a1a2e;
+    color: #E0E0E0;
+}
+</style></head>
 <body>
-  <div class="auth-container">
-    <h2 id="form-title">Accedi</h2>
-    <div id="auth-form">
-      <label for="email">Email</label>
-      <input type="email" id="email" placeholder="Inserisci la tua email" />
 
-      <label for="password">Password</label>
-      <input type="password" id="password" placeholder="Inserisci la tua password" />
+<video autoplay muted loop id="bg-video">
+  <source src="videosfondo.mp4" type="video/mp4">
+  Il tuo browser non supporta il tag video.
+</video>
+<style>
+  #bg-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    object-fit: cover;
+  }
+  body {
+    background: transparent !important;
+  }
+</style>
 
-      <div id="registration-fields" style="display: none;">
-        <label for="firstName">Nome</label>
-        <input type="text" id="firstName" placeholder="Inserisci il tuo nome" />
-
-        <label for="lastName">Cognome</label>
-        <input type="text" id="lastName" placeholder="Inserisci il tuo cognome" />
-
-        <label for="phone">Telefono</label>
-        <input type="tel" id="phone" placeholder="Inserisci il tuo telefono" />
-
-        <label for="address">Via</label>
-        <input type="text" id="address" placeholder="Inserisci la tua via" />
-
-        <label for="city">Città</label>
-        <input type="text" id="city" placeholder="Inserisci la tua città" />
-
-        <label for="postalCode">CAP</label>
-        <input type="text" id="postalCode" placeholder="Inserisci il tuo CAP" />
-      </div>
-
-      <button onclick="submitForm()">Accedi</button>
-    </div>
-
-    <div class="toggle">
-      <span id="toggleText">Non hai un account? <a onclick="toggleForm()">Registrati</a></span>
-    </div>
-  </div>
-
-  <script>
+<div class="auth-container">
+<h2 id="form-title"><span data-lang-it="Accedi" data-lang-en="Login">Accedi</span></h2>
+<div id="auth-form">
+<label for="email"><span data-lang-it="Email" data-lang-en="Email">Email</span></label>
+<input id="email" placeholder="Inserisci la tua email" type="email"/>
+<label for="password">Password</label>
+<input id="password" placeholder="Inserisci la tua password" type="password"/>
+<div id="registration-fields" style="display: none;">
+<label for="firstName"><span data-lang-it="Nome" data-lang-en="Name">Nome</span></label>
+<input id="firstName" placeholder="Inserisci il tuo nome" type="text"/>
+<label for="lastName">Cognome</label>
+<input id="lastName" placeholder="Inserisci il tuo cognome" type="text"/>
+<label for="phone">Telefono</label>
+<input id="phone" placeholder="Inserisci il tuo telefono" type="tel"/>
+<label for="address">Via</label>
+<input id="address" placeholder="Inserisci la tua via" type="text"/>
+<label for="city">Città</label>
+<input id="city" placeholder="Inserisci la tua città" type="text"/>
+<label for="postalCode">CAP</label>
+<input id="postalCode" placeholder="Inserisci il tuo CAP" type="text"/>
+</div>
+<button onclick="submitForm()"><span data-lang-it="Accedi" data-lang-en="Login">Accedi</span></button>
+</div>
+<div class="toggle">
+<span id="toggleText">Non hai un account? <a onclick="toggleForm()">Registrati</a></span>
+</div>
+</div>
+<script>
     let isLogin = true;
 
     function toggleForm() {
       isLogin = !isLogin;
-      document.getElementById("form-title").textContent = isLogin ? "Accedi" : "Registrati";
-      document.querySelector("button").textContent = isLogin ? "Accedi" : "Registrati";
+      document.getElementById("form-title").textContent = isLogin ? "<span data-lang-it="Accedi" data-lang-en="Login">Accedi</span>" : "Registrati";
+      document.querySelector("button").textContent = isLogin ? "<span data-lang-it="Accedi" data-lang-en="Login">Accedi</span>" : "Registrati";
       document.getElementById("toggleText").innerHTML = isLogin ?
         'Non hai un account? <a onclick="toggleForm()">Registrati</a>' :
-        'Hai già un account? <a onclick="toggleForm()">Accedi</a>';
+        'Hai già un account? <a onclick="toggleForm()"><span data-lang-it="Accedi" data-lang-en="Login">Accedi</span></a>';
 
       // Mostra/nascondi i campi di registrazione
       document.getElementById("registration-fields").style.display = isLogin ? "none" : "block";
@@ -186,7 +245,19 @@ s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
+<script>
+  // Attiva la chat quando pronta
+  document.addEventListener("DOMContentLoaded", function () {
+    const button = document.getElementById("tawk-button-custom");
+    if (button) {
+      button.addEventListener("click", function () {
+        if (typeof Tawk_API !== "undefined" && Tawk_API.maximize) {
+          Tawk_API.maximize();
+        } else {
+          console.log("Tawk.to non è ancora pronto. Riprova tra qualche secondo.");
+        }
+      });
+    }
+  });
+</script>
 <!--End of Tawk.to Script-->
-
-</body>
-</html>

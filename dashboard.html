@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dashboard - Propital</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title><span data-lang-it="Dashboard" data-lang-en="Dashboard">Dashboard</span> - Propital</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet"/>
+<style>
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
@@ -70,126 +71,156 @@
       margin-top: 0.3rem;
     }
   </style>
-</head>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            background: linear-gradient(to right, #232526, #414345);
+            color: white;
+            padding: 2rem;
+        }
+        .dashboard-container {
+            max-width: 900px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+        .progress-fill {
+            height: 20px;
+            width: 0%;
+            background-color: #00c3ff;
+            transition: width 1s ease-in-out;
+        }
+    </style>
+<script>
+        window.onload = function() {
+            document.querySelector('.progress-fill').style.width = '45%';
+        };
+    </script>
+<style>
+body {
+    background-color: #0e0e10;
+    color: #E0E0E0;
+}
+a {
+    color: #00C9FF;
+}
+h1, h2, h3, h4 {
+    color: #00FFF7;
+    text-shadow: 0 0 5px #00FFF7;
+}
+button {
+    background-color: #00FFF7;
+    color: #0e0e10;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+button:hover {
+    background-color: #00AFAA;
+    transform: scale(1.05);
+}
+footer {
+    background-color: #1a1a2e;
+    color: #E0E0E0;
+}
+</style></head>
 <body>
-<div class="logo-container animate__animated animate__fadeInDown">
-    <img src="logo-propital.png" alt="Logo Propital" style="height: 100px;">
+
+<video autoplay muted loop id="bg-video">
+  <source src="videosfondo.mp4" type="video/mp4">
+  Il tuo browser non supporta il tag video.
+</video>
+<style>
+  #bg-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    object-fit: cover;
+  }
+  body {
+    background: transparent !important;
+  }
+</style>
+
+<div class="dashboard-container">
+<h1>La tua <span data-lang-it="Dashboard" data-lang-en="Dashboard">Dashboard</span></h1>
+<p>Stato del tuo conto:</p>
+<div class="progress-bar">
+<div class="progress-fill"></div>
 </div>
-  <h1 class="animate__animated animate__fadeInDown">La tua Dashboard</h1>
-  <div class="dashboard animate__animated animate__fadeInUp">
+<p>Dettagli piano, performance e notifiche appariranno qui.</p>
+</div>
 
-    <div class="section">
-      <h2>📄 Dettagli del Piano</h2> 
-      <p><strong>Piano acquistato:</strong>  <span id="piano"></span></p>
-      <p><strong>Capitale:</strong>  <span id="capitale"></span></p>
-      <p><strong>Data acquisto:</strong>  <span id="data"></span></p>
-      <p><strong>Stato:</strong>  <span id="stato"></span></p>
-    </div>
+<style>
+  #tawk-button-custom {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #1dd4ff;
+    color: #000;
+    padding: 12px 18px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    font-weight: bold;
+    font-family: 'Outfit', sans-serif;
+    cursor: pointer;
+    z-index: 9999;
+    transition: all 0.3s ease;
+  }
+  #tawk-button-custom:hover {
+    background: #0fb3cc;
+  }
+  .tawk-min-container { display: none !important; }
+</style>
+<div id="tawk-button-custom" onclick="Tawk_API.maximize()">💬 Chatta con noi</div>
 
-    <div class="section">
-      <h2>📈 Performance Trading</h2>
-      <div class="stats-grid">
-        <div class="stat-box">
-          <div class="label">Guadagni/Perdite</div>
-          <div class="value" id="guadagni">$0</div>
-        </div>
-        <div class="stat-box">
-          <div class="label">% Completamento</div>
-          <div class="value" id="completamento">0%</div>
-        </div>
-        <div class="stat-box">
-          <div class="label">Giorni rimanenti</div>
-          <div class="value" id="giorni">360</div>
-        </div>
-      </div>
-      <div class="progress-bar-container">
-        <div class="progress-bar" id="barra"></div>
-      </div>
-    </div>
 
-    <div class="section">
-      <h2>📊 Statistiche Avanzate</h2>
-      <div class="stats-grid">
-        <div class="stat-box">
-          <div class="label">Operazioni totali</div>
-          <div class="value" id="operazioni">0</div>
-        </div>
-        <div class="stat-box">
-          <div class="label">Vincenti</div>
-          <div class="value" id="vincenti">0</div>
-        </div>
-        <div class="stat-box">
-          <div class="label">Perdenti</div>
-          <div class="value" id="perdenti">0</div>
-        </div>
-        <div class="stat-box">
-          <div class="label">Drawdown</div>
-          <div class="value" id="drawdown">0%</div>
-        </div>
-        <div class="stat-box">
-          <div class="label">Profitto medio</div>
-          <div class="value" id="media">0%</div>
-        </div>
-      </div>
-    </div>
 
-    <div class="section">
-      <h2>🔔 Notifiche</h2>
-      <ul id="notifiche">
-        <li>Nessuna notifica al momento.</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>📂 Cronologia Acquisti</h2>
-      <ul id="cronologia">
-        <li>In attesa di acquisti.</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>⚙️ Accesso rapido</h2>
-      <p><a href="carrello.html" style="color:#1dd4ff">Vai al Carrello</a> | <a href="piani.html" style="color:#1dd4ff">Acquista un altro piano</a></p>
-    </div>
-
-  </div>
-
-  <script>
-    const acquisto = JSON.parse(localStorage.getItem("acquisto"));
-    const pianoEl = document.getElementById("piano");
-    const capitaleEl = document.getElementById("capitale");
-    const dataEl = document.getElementById("data");
-    const statoEl = document.getElementById("stato");
-
-    if (acquisto) {
-      const today = new Date().toLocaleDateString();
-      pianoEl.textContent = acquisto.nome;
-      capitaleEl.textContent = acquisto.capitale;
-      dataEl.textContent = today;
-      statoEl.textContent = "Attivo";
-
-      // Esempio di performance random per simulazione (puoi sostituire con dati reali)
-      const percentuale = Math.floor(Math.random() * 50);
-      document.getElementById("completamento").textContent = percentuale + "%";
-      document.getElementById("barra").style.width = percentuale + "%";
-
-      document.getElementById("guadagni").textContent = "$" + (percentuale * 100).toFixed(2);
-      document.getElementById("operazioni").textContent = 10;
-      document.getElementById("vincenti").textContent = 6;
-      document.getElementById("perdenti").textContent = 4;
-      document.getElementById("drawdown").textContent = "5%";
-      document.getElementById("media").textContent = "2.5%";
-      document.getElementById("cronologia").innerHTML = `<li>${acquisto.nome} acquistato in data ${today}</li>`;
-    } else {
-      // Nessun acquisto: dashboard vuota
-      pianoEl.textContent = "-";
-      capitaleEl.textContent = "-";
-      dataEl.textContent = "-";
-      statoEl.textContent = "-";
-
-      document.getElementById("barra").style.width = "0%";
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/68018eda0a7801190f1c3cce/1ip31c1dd';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<script>
+  // Attiva la chat quando pronta
+  document.addEventListener("DOMContentLoaded", function () {
+    const button = document.getElementById("tawk-button-custom");
+    if (button) {
+      button.addEventListener("click", function () {
+        if (typeof Tawk_API !== "undefined" && Tawk_API.maximize) {
+          Tawk_API.maximize();
+        } else {
+          console.log("Tawk.to non è ancora pronto. Riprova tra qualche secondo.");
+        }
+      });
     }
-  </script>
-
-</body>
-</html>
+  });
+</script>
+<!--End of Tawk.to Script-->

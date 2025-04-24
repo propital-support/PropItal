@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Grazie per il tuo acquisto - Propital</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      background: #0e1218;
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #00f2ff;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+    .button {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background-color: #00f2ff;
+      color: #000;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .button:hover {
+      background-color: #00c2cc;
+    }
+    canvas#wavesCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle, #0e1218 0%, #0d1015 100%);
+    }
+  </style>
+</head>
+<body>
+
+<video autoplay muted loop id="bg-video">
+  <source src="videosfondo.mp4" type="video/mp4">
+  Il tuo browser non supporta il tag video.
+</video>
+<style>
+  #bg-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    object-fit: cover;
+  }
+  body {
+    background: transparent !important;
+  }
+</style>
+
+
+<canvas id="wavesCanvas"></canvas>
+
+<h1>Grazie per il tuo ordine!</h1>
+<p>Il tuo pagamento è stato ricevuto correttamente.<br>Puoi ora accedere alla tua dashboard e iniziare a tradare con Propital.</p>
+<a class="button" href="dashboard.html">Vai alla <span data-lang-it="Dashboard" data-lang-en="Dashboard">Dashboard</span></a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+  camera.position.z = 30;
+  camera.rotation.x = -0.5;
+
+  const renderer = new THREE.WebGLRenderer({
+    canvas: document.getElementById('wavesCanvas'),
+    alpha: true,
+    antialias: true
+  });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(window.devicePixelRatio);
+
+  const geometry = new THREE.PlaneGeometry(100, 100, 100, 100);
+  const material = new THREE.ShaderMaterial({
+    vertexShader: \`
+      varying vec2 vUv;
+      varying float vZ;
+      uniform float time;
+      void main() {
+        vUv = uv;
+        vec3 pos = position;
+        pos.z += sin(pos.x * 0.3 + time * 0.002) * 1.5;
+        pos.z += cos(pos.y * 0.4 + time * 0.002) * 1.5;
+        vZ = pos.z;
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+      }
+    \`,
+    fragmentShader: \`
+      varying vec2 vUv;
+      varying float vZ;
+      void main() {
+        vec3 glowColor = mix(vec3(0.0, 1.0, 0.8), vec3(0.0, 0.5, 1.0), vUv.y);
+        float intensity = 1.0 - abs(vZ) * 0.1;
+        gl_FragColor = vec4(glowColor * intensity, 0.5);
+      }
+    \`,
+    uniforms: {
+      time: { value: 0.0 }
+    },
+    transparent: true
+  });
+
+  const mesh = new THREE.Mesh(geometry, material);
+  scene.add(mesh);
+
+  function animate(time) {
+    material.uniforms.time.value = time;
+    mesh.rotation.z += 0.0005;
+    renderer.render(scene, camera);
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+</script>
+
+
+<style>
+  #tawk-button-custom {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #1dd4ff;
+    color: #000;
+    padding: 12px 18px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    font-weight: bold;
+    font-family: 'Outfit', sans-serif;
+    cursor: pointer;
+    z-index: 9999;
+    transition: all 0.3s ease;
+  }
+  #tawk-button-custom:hover {
+    background: #0fb3cc;
+  }
+  .tawk-min-container { display: none !important; }
+</style>
+<div id="tawk-button-custom" onclick="Tawk_API.maximize()">💬 Chatta con noi</div>
+
+
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/68018eda0a7801190f1c3cce/1ip31c1dd';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<script>
+  // Attiva la chat quando pronta
+  document.addEventListener("DOMContentLoaded", function () {
+    const button = document.getElementById("tawk-button-custom");
+    if (button) {
+      button.addEventListener("click", function () {
+        if (typeof Tawk_API !== "undefined" && Tawk_API.maximize) {
+          Tawk_API.maximize();
+        } else {
+          console.log("Tawk.to non è ancora pronto. Riprova tra qualche secondo.");
+        }
+      });
+    }
+  });
+</script>
+<!--End of Tawk.to Script-->

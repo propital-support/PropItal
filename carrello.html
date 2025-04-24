@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Carrello | Propital</title>
-  <link rel="stylesheet" href="stile.css" />
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Carrello | Propital</title>
+<link href="stile.css" rel="stylesheet"/>
+<style>
     body {
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
@@ -81,22 +82,110 @@
       font-weight: bold;
     }
   </style>
-</head>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            background-color: #121212;
+            color: white;
+            padding: 2rem;
+        }
+        .carrello-container {
+            max-width: 800px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+        h1 {
+            text-align: center;
+        }
+        .item {
+            display: flex;
+            justify-content: space-between;
+            margin: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 1rem;
+        }
+        .totale {
+            text-align: right;
+            margin-top: 2rem;
+            font-size: 1.25rem;
+        }
+        .checkout-btn {
+            background: #00c3ff;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            border-radius: 8px;
+            float: right;
+            margin-top: 1rem;
+        }
+        .checkout-btn:hover {
+            background-color: #009ecf;
+        }
+    </style>
+<style>
+body {
+    background-color: #0e0e10;
+    color: #E0E0E0;
+}
+a {
+    color: #00C9FF;
+}
+h1, h2, h3, h4 {
+    color: #00FFF7;
+    text-shadow: 0 0 5px #00FFF7;
+}
+button {
+    background-color: #00FFF7;
+    color: #0e0e10;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+button:hover {
+    background-color: #00AFAA;
+    transform: scale(1.05);
+}
+footer {
+    background-color: #1a1a2e;
+    color: #E0E0E0;
+}
+</style></head>
 <body>
 
-  <header>Il tuo carrello Propital</header>
-
-  <div id="carrello-container">
-    <ul id="lista-carrello"></ul>
-    <p id="totale">Totale: $0</p>
-
-    <div class="bottoni">
-      <a href="piani.html">← Torna ai Piani</a>
-      <a href="checkout.html">Procedi al Checkout →</a>
-    </div>
-  </div>
-
-  <script>
+<video autoplay muted loop id="bg-video">
+  <source src="videosfondo.mp4" type="video/mp4">
+  Il tuo browser non supporta il tag video.
+</video>
+<style>
+  #bg-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    object-fit: cover;
+  }
+  body {
+    background: transparent !important;
+  }
+</style>
+<div class="carrello-container"><header>Il tuo carrello Propital</header><div id="carrello-container">
+<ul id="lista-carrello"></ul>
+<p id="totale">Totale: $0</p>
+<div class="bottoni">
+<a href="piani.html">← Torna ai <span data-lang-it="Piani" data-lang-en="Plans">Piani</span></a>
+<a href="checkout.html">Procedi al <span data-lang-it="Checkout" data-lang-en="Checkout">Checkout</span> →</a>
+</div>
+</div><script>
     let items = JSON.parse(localStorage.getItem('cart')) || [];
 
     const listaCarrello = document.getElementById('lista-carrello');
@@ -133,6 +222,57 @@
     }
 
     aggiornaCarrello();
-  </script>
-</body>
-</html>
+  </script></div>
+<style>
+  #tawk-button-custom {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #1dd4ff;
+    color: #000;
+    padding: 12px 18px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    font-weight: bold;
+    font-family: 'Outfit', sans-serif;
+    cursor: pointer;
+    z-index: 9999;
+    transition: all 0.3s ease;
+  }
+  #tawk-button-custom:hover {
+    background: #0fb3cc;
+  }
+  .tawk-min-container { display: none !important; }
+</style>
+<div id="tawk-button-custom" onclick="Tawk_API.maximize()">💬 Chatta con noi</div>
+
+
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/68018eda0a7801190f1c3cce/1ip31c1dd';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<script>
+  // Attiva la chat quando pronta
+  document.addEventListener("DOMContentLoaded", function () {
+    const button = document.getElementById("tawk-button-custom");
+    if (button) {
+      button.addEventListener("click", function () {
+        if (typeof Tawk_API !== "undefined" && Tawk_API.maximize) {
+          Tawk_API.maximize();
+        } else {
+          console.log("Tawk.to non è ancora pronto. Riprova tra qualche secondo.");
+        }
+      });
+    }
+  });
+</script>
+<!--End of Tawk.to Script-->
