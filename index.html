@@ -2,6 +2,7 @@
 
 <html lang="it">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Propital - <span data-lang-it="Home" data-lang-en="Home">Home</span></title>
@@ -150,33 +151,154 @@
         font-size: 1rem;
       }
     }
-  </style>
+  
 <style>
-.marquee {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  padding: 10px 0;
-  background: transparent; /* nessuno sfondo */
-}
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+  }
 
-.marquee-content {
-  display: flex;
-  gap: 30px;
-  animation: scroll-left 30s linear infinite;
-  width: max-content;
-}
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+  }
 
-.marquee-content img {
-  height: 180px;
-  object-fit: contain;
-  flex-shrink: 0;
-}
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 
-@keyframes scroll-left {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
+  .responsive-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .responsive-flex > div {
+    flex: 1 1 300px;
+  }
+
+  @media (max-width: 768px) {
+    .hide-mobile {
+      display: none;
+    }
+
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero-title {
+      font-size: 1.8rem;
+    }
+
+    .cta-button {
+      width: 100%;
+      font-size: 1.1rem;
+    }
+  }
+
+<style>
+  body {
+    color: #222;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: #111;
+  }
+
+<style>
+  .cta-button {
+    background-color: #00BFFF;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .cta-button:hover {
+    background-color: #008CBA;
+    transform: scale(1.05);
+  }
+</style>
+
+</style>
+
+
+<style>
+  .cta-button {
+    background-color: #00BFFF;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .cta-button:hover {
+    background-color: #008CBA;
+    transform: scale(1.05);
+  }
+</style>
+
+</style>
+
+
+<style>
+  body {
+    color: #222;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: #111;
+  }
+
+<style>
+  .cta-button {
+    background-color: #00BFFF;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .cta-button:hover {
+    background-color: #008CBA;
+    transform: scale(1.05);
+  }
+</style>
+
+</style>
+
+
+<style>
+  .cta-button {
+    background-color: #00BFFF;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .cta-button:hover {
+    background-color: #008CBA;
+    transform: scale(1.05);
+  }
+</style>
+
 </style>
 <style>
 .marquee {
@@ -204,6 +326,329 @@
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .responsive-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .responsive-flex > div {
+    flex: 1 1 300px;
+  }
+
+  @media (max-width: 768px) {
+    .hide-mobile {
+      display: none;
+    }
+
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero-title {
+      font-size: 1.8rem;
+    }
+
+    .cta-button {
+      width: 100%;
+      font-size: 1.1rem;
+    }
+  }
+
+<style>
+  body {
+    color: #222;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: #111;
+  }
+
+<style>
+  .cta-button {
+    background-color: #00BFFF;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .cta-button:hover {
+    background-color: #008CBA;
+    transform: scale(1.05);
+  }
+</style>
+
+</style>
+
+
+<style>
+  .cta-button {
+    background-color: #00BFFF;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .cta-button:hover {
+    background-color: #008CBA;
+    transform: scale(1.05);
+  }
+</style>
+
+</style>
+
+
+<style>
+  body {
+    color: #222;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: #111;
+  }
+
+<style>
+  .cta-button {
+    background-color: #00BFFF;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .cta-button:hover {
+    background-color: #008CBA;
+    transform: scale(1.05);
+  }
+</style>
+
+</style>
+
+
+<style>
+  .cta-button {
+    background-color: #00BFFF;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .cta-button:hover {
+    background-color: #008CBA;
+    transform: scale(1.05);
+  }
+</style>
+
+</style>
+<style>
+.marquee {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 10px 0;
+  background: transparent; /* nessuno sfondo */
+}
+
+.marquee-content {
+  display: flex;
+  gap: 30px;
+  animation: scroll-left 30s linear infinite;
+  width: max-content;
+}
+
+.marquee-content img {
+  height: 180px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+@keyframes scroll-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .responsive-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .responsive-flex > div {
+    flex: 1 1 300px;
+  }
+
+  @media (max-width: 768px) {
+    .hide-mobile {
+      display: none;
+    }
+
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero-title {
+      font-size: 1.8rem;
+    }
+
+    .cta-button {
+      width: 100%;
+      font-size: 1.1rem;
+    }
+  }
+
+<style>
+  body {
+    color: #222;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: #111;
+  }
+
+<style>
+  .cta-button {
+    background-color: #00BFFF;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .cta-button:hover {
+    background-color: #008CBA;
+    transform: scale(1.05);
+  }
+</style>
+
+</style>
+
+
+<style>
+  .cta-button {
+    background-color: #00BFFF;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .cta-button:hover {
+    background-color: #008CBA;
+    transform: scale(1.05);
+  }
+</style>
+
+</style>
+
+
+<style>
+  body {
+    color: #222;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: #111;
+  }
+
+<style>
+  .cta-button {
+    background-color: #00BFFF;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .cta-button:hover {
+    background-color: #008CBA;
+    transform: scale(1.05);
+  }
+</style>
+
+</style>
+
+
+<style>
+  .cta-button {
+    background-color: #00BFFF;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .cta-button:hover {
+    background-color: #008CBA;
+    transform: scale(1.05);
+  }
+</style>
+
 </style>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -267,7 +712,155 @@
             background: rgba(0,0,0,0.4);
             backdrop-filter: blur(5px);
         }
-    </style>
+    
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .responsive-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .responsive-flex > div {
+    flex: 1 1 300px;
+  }
+
+  @media (max-width: 768px) {
+    .hide-mobile {
+      display: none;
+    }
+
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero-title {
+      font-size: 1.8rem;
+    }
+
+    .cta-button {
+      width: 100%;
+      font-size: 1.1rem;
+    }
+  }
+
+<style>
+  body {
+    color: #222;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: #111;
+  }
+
+<style>
+  .cta-button {
+    background-color: #00BFFF;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .cta-button:hover {
+    background-color: #008CBA;
+    transform: scale(1.05);
+  }
+</style>
+
+</style>
+
+
+<style>
+  .cta-button {
+    background-color: #00BFFF;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .cta-button:hover {
+    background-color: #008CBA;
+    transform: scale(1.05);
+  }
+</style>
+
+</style>
+
+
+<style>
+  body {
+    color: #222;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: #111;
+  }
+
+<style>
+  .cta-button {
+    background-color: #00BFFF;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .cta-button:hover {
+    background-color: #008CBA;
+    transform: scale(1.05);
+  }
+</style>
+
+</style>
+
+
+<style>
+  .cta-button {
+    background-color: #00BFFF;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .cta-button:hover {
+    background-color: #008CBA;
+    transform: scale(1.05);
+  }
+</style>
+
+</style>
 <style>
 body {
     background-color: #0e0e10;
@@ -298,8 +891,157 @@ footer {
     background-color: #1a1a2e;
     color: #E0E0E0;
 }
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .responsive-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .responsive-flex > div {
+    flex: 1 1 300px;
+  }
+
+  @media (max-width: 768px) {
+    .hide-mobile {
+      display: none;
+    }
+
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero-title {
+      font-size: 1.8rem;
+    }
+
+    .cta-button {
+      width: 100%;
+      font-size: 1.1rem;
+    }
+  }
+
+<style>
+  body {
+    color: #222;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: #111;
+  }
+
+<style>
+  .cta-button {
+    background-color: #00BFFF;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .cta-button:hover {
+    background-color: #008CBA;
+    transform: scale(1.05);
+  }
+</style>
+
+</style>
+
+
+<style>
+  .cta-button {
+    background-color: #00BFFF;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .cta-button:hover {
+    background-color: #008CBA;
+    transform: scale(1.05);
+  }
+</style>
+
+</style>
+
+
+<style>
+  body {
+    color: #222;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: #111;
+  }
+
+<style>
+  .cta-button {
+    background-color: #00BFFF;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .cta-button:hover {
+    background-color: #008CBA;
+    transform: scale(1.05);
+  }
+</style>
+
+</style>
+
+
+<style>
+  .cta-button {
+    background-color: #00BFFF;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .cta-button:hover {
+    background-color: #008CBA;
+    transform: scale(1.05);
+  }
+</style>
+
 </style></head>
 <body>
+
 
 
 
@@ -321,6 +1063,154 @@ footer {
   body {
     background: transparent !important;
   }
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .responsive-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .responsive-flex > div {
+    flex: 1 1 300px;
+  }
+
+  @media (max-width: 768px) {
+    .hide-mobile {
+      display: none;
+    }
+
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero-title {
+      font-size: 1.8rem;
+    }
+
+    .cta-button {
+      width: 100%;
+      font-size: 1.1rem;
+    }
+  }
+
+<style>
+  body {
+    color: #222;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: #111;
+  }
+
+<style>
+  .cta-button {
+    background-color: #00BFFF;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .cta-button:hover {
+    background-color: #008CBA;
+    transform: scale(1.05);
+  }
+</style>
+
+</style>
+
+
+<style>
+  .cta-button {
+    background-color: #00BFFF;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .cta-button:hover {
+    background-color: #008CBA;
+    transform: scale(1.05);
+  }
+</style>
+
+</style>
+
+
+<style>
+  body {
+    color: #222;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: #111;
+  }
+
+<style>
+  .cta-button {
+    background-color: #00BFFF;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .cta-button:hover {
+    background-color: #008CBA;
+    transform: scale(1.05);
+  }
+</style>
+
+</style>
+
+
+<style>
+  .cta-button {
+    background-color: #00BFFF;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .cta-button:hover {
+    background-color: #008CBA;
+    transform: scale(1.05);
+  }
+</style>
+
 </style>
 
 
@@ -416,7 +1306,6 @@ footer {
     </div>
   </section>
   <footer>
-    <p>&copy; 2025 Propital. Tutti i diritti riservati. <a href="terms.html">Termini d'uso</a></p>
 <p>© 2025 Propital. <span data-lang-it="Tutti i diritti riservati." data-lang-en="All rights reserved.">Tutti i diritti riservati.</span> <a href="terms.html">Termini d'uso</a></p>
 </footer>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
