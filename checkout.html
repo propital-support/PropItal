@@ -889,13 +889,13 @@ footer {
     if (!name || !email || total === 0) {
       alert("Per favore, compila tutti i campi e assicurati di avere prodotti nel carrello.");
       return;
-    }
+       }
     const payload = {
       amount: total.toFixed(2),
       currency: "EUR",
       metadata: {
         buyerName: name,
-        buyer<span data-lang-it="Email" data-lang-en="Email">Email</span>: email,
+        buyerEmail: email,
         items: cartItems.map(item => `${item.name} - ${item.price}€`).join(", ")
       },
       checkout: {
@@ -924,6 +924,7 @@ footer {
       console.error(error);
     }
   });
+</script>
 </script>
 
 <style>
@@ -1110,20 +1111,5 @@ s1.charset='UTF-8';
 s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
-</script>
-<script>
-  // Attiva la chat quando pronta
-  document.addEventListener("DOMContentLoaded", function () {
-    const button = document.getElementById("tawk-button-custom");
-    if (button) {
-      button.addEventListener("click", function () {
-        if (typeof Tawk_API !== "undefined" && Tawk_API.maximize) {
-          Tawk_API.maximize();
-        } else {
-          console.log("Tawk.to non è ancora pronto. Riprova tra qualche secondo.");
-        }
-      });
-    }
-  });
 </script>
 <!--End of Tawk.to Script-->
