@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Registrazione - Propital</title>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <style>
+    body { background-color: #0f172a; color: white; font-family: Arial; text-align: center; padding: 2rem; }
+    input { padding: 0.6rem; margin: 0.3rem; width: 260px; border-radius: 6px; border: none; }
+    button { padding: 0.6rem 1.5rem; margin-top: 0.8rem; background: linear-gradient(to right, #00ffa3, #1dd4ff); color: black;
+             border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
+    .box { background-color: #1e293b; padding: 2rem; border-radius: 12px; max-width: 500px; margin: auto; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Registrati</h2>
+    <input type="text" id="nome" placeholder="Nome" required><br>
+    <input type="text" id="cognome" placeholder="Cognome" required><br>
+    <input type="text" id="cap" placeholder="CAP" required><br>
+    <input type="text" id="citta" placeholder="Città" required><br>
+    <input type="text" id="stato" placeholder="Stato" required><br>
+    <input type="email" id="register-email" placeholder="Email" required><br>
+    <input type="password" id="register-password" placeholder="Password" required><br>
+    <button onclick="registerUser()">Registrati</button>
+  </div>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyD5cuUQcouJoxu44VQUMgVocQooSpOQgEY",
+      authDomain: "propital-1df56.firebaseapp.com",
+      projectId: "propital-1df56",
+      storageBucket: "propital-1df56.firebasestorage.app",
+      messagingSenderId: "708988158572",
+      appId: "1:708988158572:web:b05bfc7ade689908704e49"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    function registerUser() {
+      const userData = {
+        nome: document.getElementById("nome").value,
+        cognome: document.getElementById("cognome").value,
+        cap: document.getElementById("cap").value,
+        citta: document.getElementById("citta").value,
+        stato: document.getElementById("stato").value,
+        email: document.getElementById("register-email").value
+      };
+      const password = document.getElementById("register-password").value;
+
+      auth.createUserWithEmailAndPassword(userData.email, password)
+        .then(() => {
+          localStorage.setItem("utente", JSON.stringify(userData));
+          alert("Registrazione completata!");
+          window.location.href = "auth.html";
+        })
+        .catch(error => alert("Errore: " + error.message));
+    }
+  </script>
+</body>
+</html>
