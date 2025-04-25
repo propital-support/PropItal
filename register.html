@@ -9,9 +9,10 @@
   <style>
     body { background-color: #0f172a; color: white; font-family: Arial; text-align: center; padding: 2rem; }
     input { padding: 0.6rem; margin: 0.3rem; width: 260px; border-radius: 6px; border: none; }
-    button { padding: 0.6rem 1.5rem; margin-top: 0.8rem; background: linear-gradient(to right, #00ffa3, #1dd4ff); color: black;
+    button { padding: 0.6rem 1.5rem; margin-top: 0.8rem; background: linear-gradient(to right, #00ffa3, #8b5cf6); color: black;
              border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
-    .box { background-color: #1e293b; padding: 2rem; border-radius: 12px; max-width: 500px; margin: auto; }
+    .box { background-color: #1e293b; padding: 2rem; border-radius: 12px; max-width: 500px; margin: auto;
+           box-shadow: 0 0 18px rgba(139, 92, 246, 0.3); border: 1px solid rgba(0, 255, 163, 0.3); }
   </style>
 </head>
 <body>
@@ -27,7 +28,12 @@
     <button onclick="registerUser()">Registrati</button>
   </div>
 
+  <div id="vanta-bg" style="position:fixed;width:100%;height:100%;z-index:-1;"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
   <script>
+    VANTA.NET({ el: "#vanta-bg", color: 0x8b5cf6, backgroundColor: 0x0f172a, spacing: 18.0 });
+
     const firebaseConfig = {
       apiKey: "AIzaSyD5cuUQcouJoxu44VQUMgVocQooSpOQgEY",
       authDomain: "propital-1df56.firebaseapp.com",

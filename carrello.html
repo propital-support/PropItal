@@ -1,995 +1,197 @@
 <!DOCTYPE html>
-
 <html lang="it">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Carrello | Propital</title>
-<link href="stile.css" rel="stylesheet"/>
-<style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
-      color: white;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Il tuo carrello | Propital</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body, html {
       margin: 0;
       padding: 0;
+      font-family: 'Outfit', sans-serif;
+      background: transparent;
+      color: white;
+      height: 100%;
+      overflow-x: hidden;
+    }
+    #vanta-bg {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      top: 0;
+      left: 0;
     }
     header {
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.7);
       text-align: center;
-      font-size: 24px;
+      font-size: 1.8rem;
       font-weight: bold;
+      padding: 2rem;
       color: #00ffd5;
     }
-    #carrello-container {
-      padding: 40px;
+    .carrello-wrapper {
       max-width: 800px;
-      margin: auto;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0, 255, 213, 0.3);
+      margin: 2rem auto;
+      padding: 2rem;
+      border-radius: 20px;
+      background: rgba(30, 30, 30, 0.6);
     }
-    #lista-carrello {
-      list-style-type: none;
+    ul {
+      list-style: none;
       padding: 0;
     }
-    #lista-carrello li {
-      background: rgba(255, 255, 255, 0.1);
-      margin: 10px 0;
-      padding: 15px;
-      border-radius: 5px;
-      font-size: 18px;
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center; 
-    }
-    #totale {
-      margin-top: 30px;
-      font-size: 22px;
-      font-weight: bold;
-      text-align: right;
-      color: #00ffd5;
-    }
-    .vuoto {
-      text-align: center;
-      font-size: 20px;
-      padding: 50px;
-      color: #ccc;
-    }
-    .bottoni {
+    li {
+      background: rgba(255, 255, 255, 0.08);
+      margin-bottom: 15px;
+      padding: 15px 20px;
+      border-radius: 12px;
       display: flex;
       justify-content: space-between;
-      margin-top: 40px;
-    }
-    .bottoni a {
-      background-color: #00ffd5;
-      color: #ffffff;
-      text-decoration: none;
-      padding: 12px 25px;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-    .bottoni a:hover {
-      background-color: #00c8a3;
+      align-items: center;
+      color: white;
     }
     .rimuovi {
-      background: transparent;
+      background: none;
       border: none;
       color: #ff4d4d;
       cursor: pointer;
       font-weight: bold;
+      font-size: 0.95rem;
     }
-  
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', sans-serif;
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .responsive-flex {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-
-  .responsive-flex > div {
-    flex: 1 1 300px;
-  }
-
-  @media (max-width: 768px) {
-    .hide-mobile {
-      display: none;
+    .totale {
+      text-align: right;
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #00ffa3;
     }
-
-    .navbar {
-      flex-direction: column;
-      align-items: flex-start;
+    .bottoni {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
     }
-
-    .hero-title {
-      font-size: 1.8rem;
+    .bottoni a {
+      background: linear-gradient(to right, #00ffa3, #8b5cf6);
+      padding: 12px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #0f172a;
+      transition: transform 0.2s, box-shadow 0.3s;
     }
-
-    .cta-button {
-      width: 100%;
-      font-size: 1.1rem;
+    .bottoni a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #8b5cf6;
     }
-  }
-
-<style>
-  body {
-    color: #222;
-    line-height: 1.6;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    color: #111;
-  }
-
-<style>
-  .cta-button {
-    background-color: #00BFFF;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-
-  .cta-button:hover {
-    background-color: #008CBA;
-    transform: scale(1.05);
-  }
-</style>
-
-</style>
-
-
-<style>
-  .cta-button {
-    background-color: #00BFFF;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-
-  .cta-button:hover {
-    background-color: #008CBA;
-    transform: scale(1.05);
-  }
-</style>
-
-</style>
-
-
-<style>
-  body {
-    color: #222;
-    line-height: 1.6;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    color: #111;
-  }
-
-<style>
-  .cta-button {
-    background-color: #00BFFF;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-
-  .cta-button:hover {
-    background-color: #008CBA;
-    transform: scale(1.05);
-  }
-</style>
-
-</style>
-
-
-<style>
-  .cta-button {
-    background-color: #00BFFF;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-
-  .cta-button:hover {
-    background-color: #008CBA;
-    transform: scale(1.05);
-  }
-</style>
-
-</style>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
-<style>
-        body {
-            font-family: 'Outfit', sans-serif;
-            margin: 0;
-            background-color: #121212;
-            color: white;
-            padding: 2rem;
-        }
-        .carrello-container {
-            max-width: 800px;
-            margin: auto;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            padding: 2rem;
-        }
-        h1 {
-            text-align: center;
-        }
-        .item {
-            display: flex;
-            justify-content: space-between;
-            margin: 1rem 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 1rem;
-        }
-        .totale {
-            text-align: right;
-            margin-top: 2rem;
-            font-size: 1.25rem;
-        }
-        .checkout-btn {
-            background: #00c3ff;
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            font-size: 1rem;
-            border-radius: 8px;
-            float: right;
-            margin-top: 1rem;
-        }
-        .checkout-btn:hover {
-            background-color: #009ecf;
-        }
-    
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', sans-serif;
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .responsive-flex {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-
-  .responsive-flex > div {
-    flex: 1 1 300px;
-  }
-
-  @media (max-width: 768px) {
-    .hide-mobile {
-      display: none;
+    .vuoto {
+      text-align: center;
+      color: #ccc;
+      padding: 2rem;
     }
-
-    .navbar {
-      flex-direction: column;
-      align-items: flex-start;
+    #tawk-button-custom {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #8b5cf6;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      font-family: 'Outfit', sans-serif;
+      cursor: pointer;
+      z-index: 9999;
+      transition: all 0.3s ease;
     }
-
-    .hero-title {
-      font-size: 1.8rem;
+    #tawk-button-custom:hover {
+      background: #0fb3cc;
     }
-
-    .cta-button {
-      width: 100%;
-      font-size: 1.1rem;
-    }
-  }
-
-<style>
-  body {
-    color: #222;
-    line-height: 1.6;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    color: #111;
-  }
-
-<style>
-  .cta-button {
-    background-color: #00BFFF;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-
-  .cta-button:hover {
-    background-color: #008CBA;
-    transform: scale(1.05);
-  }
-</style>
-
-</style>
-
-
-<style>
-  .cta-button {
-    background-color: #00BFFF;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-
-  .cta-button:hover {
-    background-color: #008CBA;
-    transform: scale(1.05);
-  }
-</style>
-
-</style>
-
-
-<style>
-  body {
-    color: #222;
-    line-height: 1.6;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    color: #111;
-  }
-
-<style>
-  .cta-button {
-    background-color: #00BFFF;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-
-  .cta-button:hover {
-    background-color: #008CBA;
-    transform: scale(1.05);
-  }
-</style>
-
-</style>
-
-
-<style>
-  .cta-button {
-    background-color: #00BFFF;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-
-  .cta-button:hover {
-    background-color: #008CBA;
-    transform: scale(1.05);
-  }
-</style>
-
-</style>
-<style>
-body {
-    background-color: #0e0e10;
-    color: #E0E0E0;
-}
-a {
-    color: #00C9FF;
-}
-h1, h2, h3, h4 {
-    color: #00FFF7;
-    text-shadow: 0 0 5px #00FFF7;
-}
-button {
-    background-color: #00FFF7;
-    color: #0e0e10;
-    border: none;
-    border-radius: 8px;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-}
-button:hover {
-    background-color: #00AFAA;
-    transform: scale(1.05);
-}
-footer {
-    background-color: #1a1a2e;
-    color: #E0E0E0;
-}
-
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', sans-serif;
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .responsive-flex {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-
-  .responsive-flex > div {
-    flex: 1 1 300px;
-  }
-
-  @media (max-width: 768px) {
-    .hide-mobile {
-      display: none;
-    }
-
-    .navbar {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .hero-title {
-      font-size: 1.8rem;
-    }
-
-    .cta-button {
-      width: 100%;
-      font-size: 1.1rem;
-    }
-  }
-
-<style>
-  body {
-    color: #222;
-    line-height: 1.6;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    color: #111;
-  }
-
-<style>
-  .cta-button {
-    background-color: #00BFFF;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-
-  .cta-button:hover {
-    background-color: #008CBA;
-    transform: scale(1.05);
-  }
-</style>
-
-</style>
-
-
-<style>
-  .cta-button {
-    background-color: #00BFFF;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-
-  .cta-button:hover {
-    background-color: #008CBA;
-    transform: scale(1.05);
-  }
-</style>
-
-</style>
-
-
-<style>
-  body {
-    color: #222;
-    line-height: 1.6;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    color: #111;
-  }
-
-<style>
-  .cta-button {
-    background-color: #00BFFF;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-
-  .cta-button:hover {
-    background-color: #008CBA;
-    transform: scale(1.05);
-  }
-</style>
-
-</style>
-
-
-<style>
-  .cta-button {
-    background-color: #00BFFF;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-
-  .cta-button:hover {
-    background-color: #008CBA;
-    transform: scale(1.05);
-  }
-</style>
-
-</style></head>
+  </style>
+</head>
 <body>
 
-<video autoplay muted loop id="bg-video">
-  <source src="videosfondo.mp4" type="video/mp4">
-  Il tuo browser non supporta il tag video.
-</video>
-<style>
-  #bg-video {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    z-index: -1;
-    object-fit: cover;
-  }
-  body {
-    background: transparent !important;
-  }
+<div id="vanta-bg"></div>
 
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', sans-serif;
-  }
+<header>Il tuo carrello Propital</header>
 
-  .container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .responsive-flex {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-
-  .responsive-flex > div {
-    flex: 1 1 300px;
-  }
-
-  @media (max-width: 768px) {
-    .hide-mobile {
-      display: none;
-    }
-
-    .navbar {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .hero-title {
-      font-size: 1.8rem;
-    }
-
-    .cta-button {
-      width: 100%;
-      font-size: 1.1rem;
-    }
-  }
-
-<style>
-  body {
-    color: #222;
-    line-height: 1.6;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    color: #111;
-  }
-
-<style>
-  .cta-button {
-    background-color: #00BFFF;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-
-  .cta-button:hover {
-    background-color: #008CBA;
-    transform: scale(1.05);
-  }
-</style>
-
-</style>
-
-
-<style>
-  .cta-button {
-    background-color: #00BFFF;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-
-  .cta-button:hover {
-    background-color: #008CBA;
-    transform: scale(1.05);
-  }
-</style>
-
-</style>
-
-
-<style>
-  body {
-    color: #222;
-    line-height: 1.6;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    color: #111;
-  }
-
-<style>
-  .cta-button {
-    background-color: #00BFFF;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-
-  .cta-button:hover {
-    background-color: #008CBA;
-    transform: scale(1.05);
-  }
-</style>
-
-</style>
-
-
-<style>
-  .cta-button {
-    background-color: #00BFFF;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-
-  .cta-button:hover {
-    background-color: #008CBA;
-    transform: scale(1.05);
-  }
-</style>
-
-</style>
-<div class="carrello-container"><header>Il tuo carrello Propital</header><div id="carrello-container">
-<ul id="lista-carrello"></ul>
-<p id="totale">Totale: $0</p>
-<div class="bottoni">
-<a href="piani.html">← Torna ai <span data-lang-it="Piani" data-lang-en="Plans">Piani</span></a>
-<a href="checkout.html">Procedi al <span data-lang-it="Checkout" data-lang-en="Checkout">Checkout</span> →</a>
+<div class="carrello-wrapper">
+  <ul id="lista-carrello"></ul>
+  <p class="totale" id="totale">Totale: €0.00</p>
+  <div class="bottoni">
+    <a href="piani.html">← Torna ai Piani</a>
+    <a href="checkout.html">Procedi al Checkout →</a>
+  </div>
 </div>
-</div><script>
-    let items = JSON.parse(localStorage.getItem('cart')) || [];
 
-    const listaCarrello = document.getElementById('lista-carrello');
-    const totaleElemento = document.getElementById('totale');
-
-    function aggiornaCarrello() {
-      listaCarrello.innerHTML = '';
-      let totale = 0;
-
-      if (items.length === 0) {
-        listaCarrello.innerHTML = "<li class='vuoto'>Il carrello è vuoto.</li>";
-        totaleElemento.textContent = "Totale: $0";
-        return;
-      }
-
-      items.forEach((item, index) => {
-        const li = document.createElement("li");
-        li.innerHTML = `
-  <strong>${item.plan} ${item.size}</strong><br>
-  Prezzo: €${item.price ? parseFloat(item.price).toFixed(2) : '0.00'}
-  <button class="rimuovi" onclick="rimuoviDalCarrello(${index})">Rimuovi</button>
-`;
-        listaCarrello.appendChild(li);
-        totale += parseFloat(item.price) || 0; // Aggiunta di un fallback per evitare NaN
-      });
-
-      totaleElemento.textContent = `Totale: $${totale.toFixed(2)}`;
-    }
-
-    function rimuoviDalCarrello(index) {
-      items.splice(index, 1); // Rimuove l'elemento dall'array
-      localStorage.setItem('cart', JSON.stringify(items)); // Aggiorna il carrello in localStorage
-      aggiornaCarrello(); // Rinnova la visualizzazione del carrello
-    }
-
-    aggiornaCarrello();
-  </script></div>
-<style>
-  #tawk-button-custom {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #1dd4ff;
-    color: #ffffff;
-    padding: 12px 18px;
-    border-radius: 30px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    font-weight: bold;
-    font-family: 'Outfit', sans-serif;
-    cursor: pointer;
-    z-index: 9999;
-    transition: all 0.3s ease;
-  }
-  #tawk-button-custom:hover {
-    background: #0fb3cc;
-  }
-  .tawk-min-container { display: none !important; }
-
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', sans-serif;
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .responsive-flex {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-
-  .responsive-flex > div {
-    flex: 1 1 300px;
-  }
-
-  @media (max-width: 768px) {
-    .hide-mobile {
-      display: none;
-    }
-
-    .navbar {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .hero-title {
-      font-size: 1.8rem;
-    }
-
-    .cta-button {
-      width: 100%;
-      font-size: 1.1rem;
-    }
-  }
-
-<style>
-  body {
-    color: #222;
-    line-height: 1.6;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    color: #111;
-  }
-
-<style>
-  .cta-button {
-    background-color: #00BFFF;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-
-  .cta-button:hover {
-    background-color: #008CBA;
-    transform: scale(1.05);
-  }
-</style>
-
-</style>
-
-
-<style>
-  .cta-button {
-    background-color: #00BFFF;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-
-  .cta-button:hover {
-    background-color: #008CBA;
-    transform: scale(1.05);
-  }
-</style>
-
-</style>
-
-
-<style>
-  body {
-    color: #222;
-    line-height: 1.6;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    color: #111;
-  }
-
-<style>
-  .cta-button {
-    background-color: #00BFFF;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-
-  .cta-button:hover {
-    background-color: #008CBA;
-    transform: scale(1.05);
-  }
-</style>
-
-</style>
-
-
-<style>
-  .cta-button {
-    background-color: #00BFFF;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-
-  .cta-button:hover {
-    background-color: #008CBA;
-    transform: scale(1.05);
-  }
-</style>
-
-</style>
 <div id="tawk-button-custom" onclick="Tawk_API.maximize()">💬 Chatta con noi</div>
 
+<!-- VANTA Background -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+<script>
+  VANTA.NET({
+    el: "#vanta-bg",
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200,
+    minWidth: 200,
+    scale: 1,
+    scaleMobile: 1,
+    color: 0x8b5cf6,
+    backgroundColor: 0x0f172a,
+    points: 10.0,
+    maxDistance: 20.0,
+    spacing: 15.0
+  });
+</script>
+
+<!-- Carrello Logic -->
+
+<script>
+  let items = JSON.parse(localStorage.getItem('cart')) || [];
+
+  const listaCarrello = document.getElementById('lista-carrello');
+  const totaleElemento = document.getElementById('totale');
+
+  function aggiornaCarrello() {
+    listaCarrello.innerHTML = '';
+    let totale = 0;
+
+    if (!items || items.length === 0) {
+      listaCarrello.innerHTML = "<li class='vuoto'>Il carrello è vuoto.</li>";
+      totaleElemento.textContent = "Totale: €0.00";
+      return;
+    }
+
+    items.forEach((item, index) => {
+      const li = document.createElement("li");
+      li.innerHTML = `
+        <span style="flex: 1;"><strong>${item.plan} ${item.size}</strong></span>
+        <span style="margin-left: auto; font-weight: bold;">€${item.price ? parseFloat(item.price).toFixed(2) : '0.00'}</span>
+        <button class="rimuovi" onclick="rimuoviDalCarrello(${index})">Rimuovi</button>
+      `;
+      listaCarrello.appendChild(li);
+      totale += parseFloat(item.price) || 0;
+    });
+
+    totaleElemento.textContent = `Totale: €${totale.toFixed(2)}`;
+  }
+
+  function rimuoviDalCarrello(index) {
+    items.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(items));
+    aggiornaCarrello();
+  }
+
+  document.addEventListener('DOMContentLoaded', aggiornaCarrello);
+</script>
 
 
-<!--Start of Tawk.to Script-->
+<!-- Tawk.to Chat -->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
@@ -1001,19 +203,6 @@ s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
-<script>
-  // Attiva la chat quando pronta
-  document.addEventListener("DOMContentLoaded", function () {
-    const button = document.getElementById("tawk-button-custom");
-    if (button) {
-      button.addEventListener("click", function () {
-        if (typeof Tawk_API !== "undefined" && Tawk_API.maximize) {
-          Tawk_API.maximize();
-        } else {
-          console.log("Tawk.to non è ancora pronto. Riprova tra qualche secondo.");
-        }
-      });
-    }
-  });
-</script>
-<!--End of Tawk.to Script-->
+
+</body>
+</html>

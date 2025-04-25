@@ -1,51 +1,199 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard - Propital</title>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    body { background-color: #0f172a; color: white; font-family: Arial; text-align: center; padding: 2rem; }
-    h1 { color: #00ffa3; }
-    button { margin-top: 2rem; padding: 0.6rem 1.5rem; background: #1dd4ff; border: none; border-radius: 6px; color: black; font-weight: bold; cursor: pointer; }
+    :root {
+      --main-bg: #0e0e10;
+      --card-bg: #1c1c28;
+      --text: #ffffff;
+      --accent: #00ffa3;
+      --accent-secondary: #8b5cf6;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--main-bg);
+      font-family: 'Outfit', sans-serif;
+      color: var(--text);
+    }
+
+    .sidebar {
+      width: 240px;
+      background-color: var(--card-bg);
+      height: 100vh;
+      position: fixed;
+      padding: 20px;
+    }
+
+    .sidebar h2 {
+      color: var(--accent);
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .sidebar a {
+      color: var(--text);
+      text-decoration: none;
+      display: block;
+      margin: 14px 0;
+      font-weight: 600;
+    }
+
+    .content {
+      margin-left: 260px;
+      padding: 30px;
+    }
+
+    .dashboard-title {
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    .metrics {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 25px;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      padding: 20px;
+      border-radius: 16px;
+      flex: 1 1 250px;
+      box-shadow: 0 0 20px rgba(0,255,255,0.05);
+      min-width: 220px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: var(--accent-secondary);
+    }
+
+    .card p {
+      font-size: 26px;
+      font-weight: bold;
+      margin: 0;
+      color: var(--accent);
+    }
+
+    .chart-container {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 20px;
+      margin-top: 30px;
+    }
+
+    canvas {
+      max-height: 400px;
+    }
+
+    .plan-info {
+      margin-top: 30px;
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 16px;
+    }
+
+    .plan-info h3 {
+      color: var(--accent-secondary);
+    }
+
+    .plan-info p {
+      margin: 0.4rem 0;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
-  <h1 id="welcome">Benvenuto!</h1>
-  <p>Questa è la tua dashboard personale.</p>
-  <button onclick="logoutUser()">Esci</button>
+
+  <div class="sidebar">
+    <h2>Propital</h2>
+    <a href="#">📊 Dashboard</a>
+    <a href="#">📈 Trading</a>
+    <a href="#">🏁 Challenges</a>
+    <a href="#">🛠 Supporto</a>
+    <a href="#">⚙️ Impostazioni</a>
+    <a href="#">🚪 Logout</a>
+  </div>
+
+  <div class="content">
+    <div class="dashboard-title">Benvenuto, Cliente</div>
+
+    <div class="metrics">
+      <div class="card">
+        <h3>Guadagno Giornaliero</h3>
+        <p>$0.00</p>
+      </div>
+      <div class="card">
+        <h3>Totale Guadagni</h3>
+        <p>$0.00</p>
+      </div>
+      <div class="card">
+        <h3>Profit Target</h3>
+        <p>$0.00</p>
+      </div>
+      <div class="card">
+        <h3>Drawdown</h3>
+        <p>$0.00</p>
+      </div>
+    </div>
+
+    <div class="chart-container">
+      <h3>Equity Curve</h3>
+      <canvas id="equityChart"></canvas>
+    </div>
+
+    <div class="plan-info">
+      <h3>Dati Account</h3>
+      <p>Piano Attuale: Nessun piano acquistato</p>
+      <p>Capitale Iniziale: $0</p>
+      <p>Stato: In attesa di attivazione</p>
+      <p>Progresso: 0%</p>
+    </div>
+
+    <footer>
+      © 2025 Propital. Tutti i diritti riservati.
+    </footer>
+  </div>
 
   <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyD5cuUQcouJoxu44VQUMgVocQooSpOQgEY",
-      authDomain: "propital-1df56.firebaseapp.com",
-      projectId: "propital-1df56",
-      storageBucket: "propital-1df56.firebasestorage.app",
-      messagingSenderId: "708988158572",
-      appId: "1:708988158572:web:b05bfc7ade689908704e49"
-    };
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-
-    const utente = JSON.parse(localStorage.getItem("utente"));
-    if (utente && utente.nome) {
-      document.getElementById("welcome").textContent = "Benvenuto, " + utente.nome + "!";
-    }
-
-    auth.onAuthStateChanged(user => {
-      if (!user) {
-        window.location.href = "auth.html";
+    const ctx = document.getElementById('equityChart').getContext('2d');
+    const equityChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Giorno 1', 'Giorno 2', 'Giorno 3', 'Giorno 4', 'Giorno 5'],
+        datasets: [{
+          label: 'Equity',
+          data: [0, 0, 0, 0, 0], // Valori iniziali = 0
+          borderColor: '#00ffa3',
+          backgroundColor: 'rgba(0,255,163,0.1)',
+          fill: true,
+          tension: 0.3
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
       }
     });
-
-    function logoutUser() {
-      auth.signOut().then(() => {
-        localStorage.removeItem("utente");
-        window.location.href = "index.html";
-      });
-    }
   </script>
+
 </body>
 </html>
