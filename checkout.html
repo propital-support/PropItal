@@ -47,6 +47,7 @@
       padding: 30px;
       border-radius: 20px;
       box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+      position: relative;
     }
     .checkout-container h1 {
       margin-bottom: 20px;
@@ -95,6 +96,21 @@
       transform: scale(1.05);
       box-shadow: 0 0 20px #8b5cf6;
     }
+    #applyCouponBtn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #8b5cf6;
+      border: none;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    #couponSection {
+      display: none;
+      margin-bottom: 20px;
+    }
     footer {
       text-align: center;
       padding: 20px;
@@ -130,9 +146,19 @@
   <p id="platform-warning" style="text-align:center; color:#ff7777; margin-top: 10px; display:none;">Seleziona una piattaforma prima di procedere.</p>
 
   <div class="checkout-container">
+    <button id="applyCouponBtn">Applica Coupon</button>
+
     <h1>Checkout</h1>
     <div class="checkout-items" id="checkout-items"></div>
     <div class="checkout-total" id="checkout-total"></div>
+
+    <div id="couponSection">
+      <label for="couponCode">Inserisci il codice coupon</label>
+      <input id="couponCode" type="text" placeholder="Es. PROPITAL10" />
+      <button type="button" onclick="applyCoupon()" style="margin-top: 10px; background: #00ffa3; color: black; padding: 10px 15px; border-radius: 8px; border: none;">Conferma Coupon</button>
+      <p id="couponMessage" style="margin-top: 10px;"></p>
+    </div>
+
     <form class="checkout-form">
       <label for="name">Nome completo</label>
       <input id="name" type="text" required />
@@ -166,12 +192,11 @@
     maxDistance: 20.0,
     spacing: 15.0
   });
-</script>
 
-<script>
   let total = 0;
   let cartItems = [];
   let selectedPlatform = null;
+  let discountApplied = false;
 
   document.querySelectorAll('.platform').forEach(platform => {
     platform.addEventListener('click', () => {
@@ -198,7 +223,30 @@
     });
     totalEl.innerText = 'Totale: ' + total.toFixed(2) + '€';
   }
+
   loadCart();
+
+  document.getElementById('applyCouponBtn').addEventListener('click', () => {
+    document.getElementById('couponSection').style.display = 'block';
+  });
+
+  function applyCoupon() {
+    const code = document.getElementById('couponCode').value.trim().toUpperCase();
+    const message = document.getElementById('couponMessage');
+    if (code === 'PROPITAL10' && !discountApplied) {
+      total *= 0.9;
+      document.getElementById('checkout-total').innerText = 'Totale scontato: ' + total.toFixed(2) + '€';
+      message.style.color = 'lime';
+      message.innerText = 'Coupon applicato! Hai ricevuto il 10% di sconto.';
+      discountApplied = true;
+    } else if (discountApplied) {
+      message.style.color = 'orange';
+      message.innerText = 'Hai già applicato un coupon.';
+    } else {
+      message.style.color = 'red';
+      message.innerText = 'Codice coupon non valido.';
+    }
+  }
 
   document.querySelector('.checkout-form').addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -252,3 +300,4 @@
 </script>
 </body>
 </html>
+
