@@ -1,4 +1,3 @@
 User-agent: *
-Disallow:
-
-Sitemap: https://supportpropital.site/sitemap.xml
+Allow: /
+Sitemap: https://propital.site/sitemap.xml
